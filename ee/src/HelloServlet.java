@@ -20,12 +20,12 @@ public class HelloServlet extends HttpServlet {
                 "    <title>Обработка данных форм 2</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "Name: " + req.getParameter("TEXT_1") + "\n" +
-                "Surname: " + req.getParameter("TEXT_2") + "\n" +
-                "Date of Birth: " + req.getParameter("TEXT_3") + "\n" +
-                "Gender: " + req.getParameter("TEXT_4") + "\n" +
-                "About bug: " + req.getParameter("TEXT_6") + "\n" +
-                "Comments: " + req.getParameter("TEXT_5") + "\n" +
+                "<p>Name: " + req.getParameter("TEXT_1") + "</p>" +
+                "<p>Surname: " + req.getParameter("TEXT_2") + "</p>" +
+                "<p>Date of Birth: " + req.getParameter("TEXT_3") + "</p>" +
+                "<p>Gender: " + req.getParameter("TEXT_4") + "</p>" +
+                "<p>About bug: " + req.getParameter("TEXT_6") + "</p>" +
+                "<p>Comments: " + req.getParameter("TEXT_5") + "</p>" +
                 "</body>\n" +
                 "</html>");
     }
