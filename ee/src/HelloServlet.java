@@ -21,6 +21,11 @@ public class HelloServlet extends HttpServlet {
                 "</head>\n" +
                 "<body>\n" +
                 "Name: " + req.getParameter("TEXT_1") + "\n" +
+                "Surname: " + req.getParameter("TEXT_2") + "\n" +
+                "Date of Birth: " + req.getParameter("TEXT_3") + "\n" +
+                "Gender: " + req.getParameter("TEXT_4") + "\n" +
+                "About bug: " + req.getParameter("TEXT_6") + "\n" +
+                "Comments: " + req.getParameter("TEXT_5") + "\n" +
                 "</body>\n" +
                 "</html>");
     }
