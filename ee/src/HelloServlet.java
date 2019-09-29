@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
@@ -13,6 +14,7 @@ public class HelloServlet extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         req.setCharacterEncoding("utf-8");
         PrintWriter writer = resp.getWriter();
+        Enumeration<String> parameterNames = req.getParameterNames();
         writer.write(
                 "<!DOCTYPE html>\n" +
                         "<html>\n" +
@@ -21,10 +23,10 @@ public class HelloServlet extends HttpServlet {
                         "    <title>Обработка данных форм</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "<p>Имя: " + req.getParameter("TEXT_1") + "</p>" +
-                "<p>Фамилия: " + req.getParameter("TEXT_2") + "</p>" +
-                "<p>Дата рождения: " + req.getParameter("TEXT_3") + "</p>" +
-                "<p>Пол: " + req.getParameter("TEXT_4") + "</p>" +
+                "<p>Имя: " + (req.getParameter("TEXT_1") == "" ? "не заполнено": req.getParameter("TEXT_1")) + "</p>" +
+                "<p>Фамилия: " + (req.getParameter("TEXT_2") == "" ? "не заполнено": req.getParameter("TEXT_2")) + "</p>" +
+                "<p>Дата рождения: " + (req.getParameter("TEXT_3") == "" ? "не заполнено": req.getParameter("TEXT_3")) + "</p>" +
+                "<p>Пол: " + (req.getParameter("TEXT_4") == "" ? "не заполнено": req.getParameter("TEXT_4")) + "</p>" +
                 "<p>О баге: " + req.getParameter("TEXT_6") + "</p>" +
                 "<p>Комментарий: " + req.getParameter("TEXT_5") + "</p>" +
                         "<form action=\"hello\" method=\"post\">\n" +
