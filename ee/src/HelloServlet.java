@@ -26,7 +26,7 @@ public class HelloServlet extends HttpServlet {
                 "<p>Имя: " + (req.getParameter("TEXT_1") == "" ? "не заполнено": req.getParameter("TEXT_1")) + "</p>" +
                 "<p>Фамилия: " + (req.getParameter("TEXT_2") == "" ? "не заполнено": req.getParameter("TEXT_2")) + "</p>" +
                 "<p>Дата рождения: " + (req.getParameter("TEXT_3") == "" ? "не заполнено": req.getParameter("TEXT_3")) + "</p>" +
-                "<p>Пол: " + (req.getParameter("TEXT_4") == "" ? "не заполнено": req.getParameter("TEXT_4")) + "</p>" +
+                "<p>Пол: " + req.getParameter("TEXT_4") + "</p>" +
                 "<p>О баге: " + req.getParameter("TEXT_6") + "</p>" +
                 "<p>Комментарий: " + req.getParameter("TEXT_5") + "</p>" +
                         "<form action=\"hello\" method=\"post\">\n" +
