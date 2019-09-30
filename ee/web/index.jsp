@@ -1,4 +1,6 @@
-<%--
+<%@ page import="javax.servlet.annotation.WebServlet" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="java.io.PrintWriter" %><%--
   Created by IntelliJ IDEA.
   User: Анатолий
   Date: 28.09.2019
@@ -13,13 +15,12 @@
   <title>Обработка данных форм</title>
   </head>
 <body>
-<% %>
-<p>Имя: " + (req.getParameter("TEXT_1") == "" ? "не заполнено": req.getParameter("TEXT_1")) + "</p>" +
-"<p>Фамилия: " + (req.getParameter("TEXT_2") == "" ? "не заполнено": req.getParameter("TEXT_2")) + "</p>" +
-"<p>Дата рождения: " + (req.getParameter("TEXT_3") == "" ? "не заполнено": req.getParameter("TEXT_3")) + "</p>" +
-"<p>Пол: " + req.getParameter("TEXT_4") + "</p>" +
-"<p>О баге: " + req.getParameter("TEXT_6") + "</p>" +
-"<p>Комментарий: " + req.getParameter("TEXT_5") + "</p>"
+<p>Имя: <%=(request.getParameter("TEXT_1") == "" ? "не заполнено": request.getParameter("TEXT_1"))%></p>
+<p>Фамилия: <%=(request.getParameter("TEXT_2") == "" ? "не заполнено": request.getParameter("TEXT_2"))%></p>
+<p>Дата рождения: <%=(request.getParameter("TEXT_3") == "" ? "не заполнено": request.getParameter("TEXT_3"))%></p>
+<p>Пол: <%=request.getParameter("TEXT_4")%></p>
+<p>О баге: <%=request.getParameter("TEXT_6")%></p>
+<p>Комментарий: <%=request.getParameter("TEXT_5")%></p>
 <form action="hello" method="post">
   <table width="200%" cellspacing="0" cellpadding="4">
     <tr>
