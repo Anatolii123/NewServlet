@@ -13,7 +13,7 @@
   <title>Обработка данных форм</title>
   </head>
 <body>
-<%= %>
+<% %>
 <p>Имя: " + (req.getParameter("TEXT_1") == "" ? "не заполнено": req.getParameter("TEXT_1")) + "</p>" +
 "<p>Фамилия: " + (req.getParameter("TEXT_2") == "" ? "не заполнено": req.getParameter("TEXT_2")) + "</p>" +
 "<p>Дата рождения: " + (req.getParameter("TEXT_3") == "" ? "не заполнено": req.getParameter("TEXT_3")) + "</p>" +
