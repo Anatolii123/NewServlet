@@ -14,7 +14,6 @@ public class HelloServlet extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         req.setCharacterEncoding("utf-8");
         PrintWriter writer = resp.getWriter();
-        Enumeration<String> parameterNames = req.getParameterNames();
         writer.write(
                 "<!DOCTYPE html>\n" +
                         "<html>\n" +
