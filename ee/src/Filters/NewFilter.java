@@ -16,19 +16,17 @@ public class NewFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        name = filterConfig.getInitParameter("name");
-        System.out.println("Filter initialization!");
+       this.setName(filterConfig.getInitParameter("name"));
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         if (servletRequest.getParameter("TEXT_1") != "") {
-            name = servletRequest.getParameter("TEXT_1");
+            this.setName(servletRequest.getParameter("TEXT_1"));
         }
     }
 
     @Override
     public void destroy() {
-        System.out.println("Filter destruction!");
     }
 }
