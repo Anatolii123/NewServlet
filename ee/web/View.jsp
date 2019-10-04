@@ -1,7 +1,4 @@
-<%@ page import="javax.servlet.annotation.WebServlet" %>
-<%@ page import="java.io.IOException" %>
-<%@ page import="java.io.PrintWriter" %>
-<%@ page import="Filters.NewFilter" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Анатолий
   Date: 28.09.2019

@@ -7,6 +7,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="ee" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.oracle:ojdbc14:10.2.0.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:9.0.26" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:9.0.26" />
+        </element>
       </element>
     </root>
   </artifact>
