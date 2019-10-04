@@ -16,9 +16,9 @@
 <p>Имя: <%=(request.getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
 <p>Фамилия: <%=(request.getAttribute("surname") == "" ? "не заполнено": request.getAttribute("surname"))%></p>
 <p>Дата рождения: <%=(request.getAttribute("dateOfBirth") == "" ? "не заполнено": request.getAttribute("dateOfBirth"))%></p>
-<p>Пол: <%=request.getParameter("TEXT_4")%></p>
-<p>О баге: <%=request.getParameter("TEXT_6")%></p>
-<p>Комментарий: <%=request.getParameter("TEXT_5")%></p>
+<p>Пол: <%=(request.getAttribute("gender") == "" ? "не заполнено": request.getAttribute("gender"))%></p>
+<p>О баге: <%=(request.getAttribute("bug") == "" ? "не заполнено": request.getAttribute("bug"))%></p>
+<p>Комментарий: <%=(request.getAttribute("comments") == "" ? "не заполнено": request.getAttribute("comments"))%></p>
 <form action="hello" method="post">
   <table width="200%" cellspacing="0" cellpadding="4">
     <tr>
