@@ -29,7 +29,15 @@ public class Model extends HttpServlet {
                     "'" + req.getParameter("TEXT_4") +"', " +
                     "'" + req.getParameter("TEXT_6") +"', " +
                     "'" + req.getParameter("TEXT_5") +"')");
-
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM PEOPLE WHERE ID = (SELECT MAX(ID) FROM PEOPLE)");
+            while (resultSet.next()) {
+                req.setAttribute("name", resultSet.getString("NAME"));
+                req.setAttribute("surname", resultSet.getString("SURNAME"));
+                req.setAttribute("dateOfBirth", resultSet.getString("DATE_OF_BIRTH"));
+                String gender = resultSet.getString("GENDER");
+                String bug = resultSet.getString("BUG");
+                String comments = resultSet.getString("COMMENTS");
+            }
         } catch (Exception e) {
             System.out.println(e);
         }

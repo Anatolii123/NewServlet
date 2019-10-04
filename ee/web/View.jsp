@@ -13,9 +13,9 @@
   <title>Обработка данных форм</title>
   </head>
 <body>
-<p>Имя: <%=(request.getParameter("TEXT_1") == "" ? "не заполнено": request.getParameter("TEXT_1"))%></p>
-<p>Фамилия: <%=(request.getParameter("TEXT_2") == "" ? "не заполнено": request.getParameter("TEXT_2"))%></p>
-<p>Дата рождения: <%=(request.getParameter("TEXT_3") == "" ? "не заполнено": request.getParameter("TEXT_3"))%></p>
+<p>Имя: <%=(request.getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
+<p>Фамилия: <%=(request.getAttribute("surname") == "" ? "не заполнено": request.getAttribute("surname"))%></p>
+<p>Дата рождения: <%=(request.getAttribute("dateOfBirth") == "" ? "не заполнено": request.getAttribute("dateOfBirth"))%></p>
 <p>Пол: <%=request.getParameter("TEXT_4")%></p>
 <p>О баге: <%=request.getParameter("TEXT_6")%></p>
 <p>Комментарий: <%=request.getParameter("TEXT_5")%></p>
