@@ -36,7 +36,8 @@ public class Model extends HttpServlet {
                 req.setAttribute("dateOfBirth", resultSet.getString("DATE_OF_BIRTH"));
                 req.setAttribute("gender", resultSet.getString("GENDER"));
                 req.setAttribute("bug", resultSet.getString("BUG"));
-                req.setAttribute("comments", resultSet.getString("COMMENTS"));
+                req.setAttribute("comments", (resultSet.getString("COMMENTS") == null)? "не задано":resultSet.getString("COMMENTS"));
+                connection.close();
             }
         } catch (Exception e) {
             System.out.println(e);

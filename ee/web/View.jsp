@@ -19,7 +19,7 @@
 <p>Пол: <%=(request.getAttribute("gender") == "" ? "не заполнено": request.getAttribute("gender"))%></p>
 <p>О баге: <%=(request.getAttribute("bug") == "" ? "не заполнено": request.getAttribute("bug"))%></p>
 <p>Комментарий: <%=(request.getAttribute("comments") == "" ? "не заполнено": request.getAttribute("comments"))%></p>
-<form action="hello" method="post">
+<form action="Model" method="post">
   <table width="200%" cellspacing="0" cellpadding="4">
     <tr>
       <td align="right" width="100">Имя:</td>
