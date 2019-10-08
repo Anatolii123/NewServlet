@@ -46,16 +46,6 @@
       font-family: Verdana, Arial, Helvetica, sans-serif;
       text-align: center
     }
-    th {
-      font-size: 150%;
-      font-family: Verdana, sans-serif;
-      text-align: center;
-      background-color: #4285F4;
-      color: white;
-      border: #4285F4;
-      width: 40px;
-      height: 40px;
-    }
     td {
       font-size: 150%;
       font-family: Verdana, Helvetica, sans-serif;
@@ -168,9 +158,31 @@
 </form>
 <form name="myform" id="form" oninput="range1value.value = range1.valueAsNumber">
   <input name="range1" type="range" id="r1" step="1" min="1" oninput="fun()" max="16" list="tickmarks" value="4">
-  <output name="range1value" for="range1" >10</output>
+  <output name="range1value" for="range1">4</output>
 </form>
 <datalist id="tickmarks">
+  <option value="1">
+  <option value="2">
+  <option value="3">
+  <option value="4">
+  <option value="5">
+  <option value="6">
+  <option value="7">
+  <option value="8">
+  <option value="9">
+  <option value="10">
+  <option value="11">
+  <option value="12">
+  <option value="13">
+  <option value="14">
+  <option value="15">
+  <option value="16">
+</datalist>
+<form name="myform2" id="form2" oninput="range2value.value = range2.valueAsNumber">
+  <input name="range2" type="range" id="r2" step="1" min="1" oninput="fun2()" max="16" list="tickmarks2" value="4">
+  <output name="range2value" for="range2" id="rv2">4</output>
+</form>
+<datalist id="tickmarks2">
   <option value="1">
   <option value="2">
   <option value="3">
