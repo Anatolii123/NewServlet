@@ -46,27 +46,27 @@
       font-family: Verdana, Arial, Helvetica, sans-serif;
       text-align: center
     }
-    td {
-      font-size: 150%;
-      font-family: Verdana, Helvetica, sans-serif;
-      text-align: center;
-      border-collapse: collapse;
-      transition: .5s;
-      background-color: #ddd;
-      border: #ddd;
-      width: 40px;
-      height: 40px;
-    }
-    td:hover {
-      font-size: 180%;
-      font-weight: 600;
-      color: white;
-      border: #4285F4;
-      background-color: #4285F4;
-      transition: .5s;
-      width: 60px;
-      height: 60px;
-    }
+    /*td {*/
+    /*  font-size: 120%;*/
+    /*  font-family: Verdana, Helvetica, sans-serif;*/
+    /*  text-align: center;*/
+    /*  border-collapse: collapse;*/
+    /*  transition: .5s;*/
+    /*  background-color: #ddd;*/
+    /*  border: #ddd;*/
+    /*  width: 40px;*/
+    /*  height: 40px;*/
+    /*}*/
+    /*td:hover {*/
+    /*  font-size: 100%;*/
+    /*  font-weight: 600;*/
+    /*  color: white;*/
+    /*  border: #4285F4;*/
+    /*  background-color: #4285F4;*/
+    /*  transition: .5s;*/
+    /*  width: 60px;*/
+    /*  height: 60px;*/
+    /*}*/
     td.Change{
       borderColor: rgb(51,54,57);
       color: white;
@@ -142,26 +142,17 @@
       left: calc(50% - -800px);
     }
     input[type=text]{
-      width: 25%;
+      width: 30%;
       padding: 15px;
       display: inline-block;
       border: none;
       background: #ddd;
-      font-size: 50%;
+      font-size: 100%;
+      width: 20px;
+      height: 20px;
       font-family: Verdana, Helvetica, sans-serif;
       text-align: center;
       border-collapse: collapse;
-    }
-
-    input[type=text]:hover{
-      font-size: 80%;
-      font-weight: 300;
-      color: white;
-      border: #4285F4;
-      background-color: #4285F4;
-      transition: .5s;
-      width: 30px;
-      height: 34px;
     }
 
     input[type=text]:focus{
