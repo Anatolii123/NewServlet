@@ -62,7 +62,8 @@
       text-align: center;
       border-collapse: collapse;
       transition: .5s;
-      border: white;
+      background-color: #ddd;
+      border: #ddd;
       width: 40px;
       height: 40px;
     }
@@ -166,10 +167,11 @@
   <p>Комментарий: <%=(request.getAttribute("comments") == "" ? "не заполнено": request.getAttribute("comments"))%></p>
 </form>
 <form name="myform" id="form" oninput="range1value.value = range1.valueAsNumber">
-  <input name="range1" type="range" id="r1" step="1" min="2" oninput="fun()" max="16" list="tickmarks" value="10">
+  <input name="range1" type="range" id="r1" step="1" min="1" oninput="fun()" max="16" list="tickmarks" value="4">
   <output name="range1value" for="range1" >10</output>
 </form>
 <datalist id="tickmarks">
+  <option value="1">
   <option value="2">
   <option value="3">
   <option value="4">
