@@ -141,6 +141,33 @@
       top: calc(50% - 450px);
       left: calc(50% - -800px);
     }
+    input[type=text]{
+      width: 25%;
+      padding: 15px;
+      display: inline-block;
+      border: none;
+      background: #ddd;
+      font-size: 50%;
+      font-family: Verdana, Helvetica, sans-serif;
+      text-align: center;
+      border-collapse: collapse;
+    }
+
+    input[type=text]:hover{
+      font-size: 80%;
+      font-weight: 300;
+      color: white;
+      border: #4285F4;
+      background-color: #4285F4;
+      transition: .5s;
+      width: 30px;
+      height: 34px;
+    }
+
+    input[type=text]:focus{
+      background-color: #ddd;
+      outline: none;
+    }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   <script async src="main.js"></script>
