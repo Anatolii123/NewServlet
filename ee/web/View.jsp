@@ -15,6 +15,8 @@
 <body>
 <p>Имя: <%=(request.getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
 <p>Фамилия: <%=(request.getAttribute("surname") == "" ? "не заполнено": request.getAttribute("surname"))%></p>
+<p>Email: <%=(request.getAttribute("email") == "" ? "не заполнено": request.getAttribute("email"))%></p>
+<p>Пароль: <%=(request.getAttribute("password") == "" ? "не заполнено": request.getAttribute("password"))%></p>
 <p>Дата рождения: <%=(request.getAttribute("dateOfBirth") == "" ? "не заполнено": request.getAttribute("dateOfBirth"))%></p>
 <p>Пол: <%=(request.getAttribute("gender") == "" ? "не заполнено": request.getAttribute("gender"))%></p>
 <p>О баге: <%=(request.getAttribute("bug") == "" ? "не заполнено": request.getAttribute("bug"))%></p>

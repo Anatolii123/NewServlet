@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet("/Controller")
+@WebServlet("/Model")
 public class Controller extends HttpServlet {
 
     @Override
@@ -28,11 +28,15 @@ public class Controller extends HttpServlet {
                     "'" + req.getParameter("TEXT_3") +"', " +
                     "'" + req.getParameter("TEXT_4") +"', " +
                     "'" + req.getParameter("TEXT_6") +"', " +
-                    "'" + req.getParameter("TEXT_5") +"')");
+                    "'" + req.getParameter("TEXT_7") +"', " +
+                    "'" + req.getParameter("TEXT_8") +"', " +
+                    "'" + req.getParameter("TEXT_9") +"')");
             ResultSet resultSet = statement.executeQuery("SELECT * FROM PEOPLE WHERE ID = (SELECT MAX(ID) FROM PEOPLE)");
             while (resultSet.next()) {
                 req.setAttribute("name", resultSet.getString("NAME"));
                 req.setAttribute("surname", resultSet.getString("SURNAME"));
+                req.setAttribute("email", resultSet.getString("EMAIL"));
+                req.setAttribute("password", resultSet.getString("PASSWORD"));
                 req.setAttribute("dateOfBirth", resultSet.getString("DATE_OF_BIRTH"));
                 req.setAttribute("gender", resultSet.getString("GENDER"));
                 req.setAttribute("bug", resultSet.getString("BUG"));
