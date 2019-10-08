@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet("/Model")
+@WebServlet("/Controller")
 public class Controller extends HttpServlet {
 
     @Override

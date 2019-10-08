@@ -16,5 +16,8 @@
 <!--        <filter-name>MyFilter</filter-name>-->
 <!--        <url-pattern>/hello</url-pattern>-->
 <!--    </filter-mapping>-->
+    <welcome-file-list>
+        <welcome-file>Signin.jsp</welcome-file>
+    </welcome-file-list>
     
 </web-app>
