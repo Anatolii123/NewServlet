@@ -10,10 +10,15 @@
 <head>
     <title>Sign In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"
-          http-equiv="Cache-Control" content="no-cache">
+          http-equiv="Cache-Control" content="nocache">
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
+
+        }
+        form {
+            position: absolute;
+            left: 28px;
         }
 
         * {
@@ -21,7 +26,7 @@
         }
 
         input[type=text], input[type=password] {
-            width: 10%;
+            width: 99%;
             padding: 15px;
             margin: 5px 0 22px 0;
             display: inline-block;

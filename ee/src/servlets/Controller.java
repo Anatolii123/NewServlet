@@ -21,22 +21,29 @@ public class Controller extends HttpServlet {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
             Statement statement = connection.createStatement();
-            statement.executeUpdate("INSERT INTO PEOPLE VALUES (" +
-                    "PEOPLE_ID_SEQUENCE.NEXTVAL, " +
-                    "'" + req.getParameter("TEXT_1") +"', " +
-                    "'" + req.getParameter("TEXT_2") +"', " +
-                    "'" + req.getParameter("TEXT_3") +"', " +
-                    "'" + req.getParameter("TEXT_4") +"', " +
-                    "'" + req.getParameter("TEXT_6") +"', " +
-                    "'" + req.getParameter("TEXT_7") +"', " +
-                    "'" + req.getParameter("TEXT_8") +"', " +
-                    "'" + req.getParameter("TEXT_9") +"')");
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM PEOPLE WHERE ID = (SELECT MAX(ID) FROM PEOPLE)");
+            if (!statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
+                    "'" + req.getParameter("TEXT_3") +"'" +
+                    " AND PASSWORD = " +
+                    "'" + req.getParameter("TEXT_4") +"'" +
+                    "").next() &&
+                    req.getParameter("TEXT_1") == null &&
+                    req.getParameter("TEXT_2") == null &&
+                    req.getParameter("TEXT_6") == null &&
+                    req.getParameter("TEXT_7") == null &&
+                    req.getParameter("TEXT_8") == null &&
+                    req.getParameter("TEXT_9") == null) {
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Signup.jsp");
+                requestDispatcher.forward(req,resp);
+            }
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
+                    "'" + req.getParameter("TEXT_3") +"'" +
+                    " AND PASSWORD = " +
+                    "'" + req.getParameter("TEXT_4") +"'" +
+                    "");
             while (resultSet.next()) {
                 req.setAttribute("name", resultSet.getString("NAME"));
                 req.setAttribute("surname", resultSet.getString("SURNAME"));
                 req.setAttribute("email", resultSet.getString("EMAIL"));
-                req.setAttribute("password", resultSet.getString("PASSWORD"));
                 req.setAttribute("dateOfBirth", resultSet.getString("DATE_OF_BIRTH"));
                 req.setAttribute("gender", resultSet.getString("GENDER"));
                 req.setAttribute("bug", resultSet.getString("BUG"));
