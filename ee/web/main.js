@@ -14,18 +14,27 @@ firstMat.style.top = '10%';
 firstMat.style.left = '35%';
 secondMat.style.top = '10%';
 secondMat.style.left = '75%';
+
+function proverka(input) {
+    input.value = input.value.replace(/[^\d,]/g, '')
+};
+
 function fun() {
     n = rng.value;
-    var mainrow = '<tr><td><input type="text" maxlength="50" size="5"></td>';
+    var mainrow = '<tr><td><input type="text" maxlength="50" size="5" ' +
+        'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
     for (var i = 0; i < n-1; i++) {
-        mainrow += '<td><input type="text" maxlength="50" size="5"></td>';
+        mainrow += '<td><input type="text" maxlength="50" size="5" ' +
+        'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
     }
     mainrow += '</tr>';
     var tableHTML = mainrow;
     for (var i = 0; i < n-1; i++){
-        row = '<tr><td><input type="text" maxlength="50" size="5"></td>';
+        row = '<tr><td><input type="text" maxlength="50" size="5" ' +
+        'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
         for (var j = 0; j < n-1; j++) {
-            row += '<td><input type="text" maxlength="50" size="5"></td>';
+            row += '<td><input type="text" maxlength="50" size="5" ' +
+        'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
         }
         row += '</tr>';
         tableHTML += row;
@@ -47,16 +56,20 @@ function fun() {
 fun();
 function fun2() {
     n2 = rng2.value;
-    var mainrow = '<tr><td> </td>';
+    var mainrow = '<tr><td><input type="text" maxlength="50" size="5" ' +
+        'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
     for (var i = 0; i < n2-1; i++) {
-        mainrow += '<td>' + "" + '</td>';
+        mainrow += '<td><input type="text" maxlength="50" size="5" ' +
+        'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
     }
     mainrow += '</tr>';
     var tableHTML = mainrow;
     for (var i = 0; i < n2-1; i++){
-        row2 = '<tr><td>' + "" + '</td>';
+        row2 = '<tr><td><input type="text" maxlength="50" size="5" ' +
+         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
         for (var j = 0; j < n2-1; j++) {
-            row2 += '<td>' + "" + '</td>';
+            row2 += '<td><input type="text" maxlength="50" size="5" ' +
+         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
         }
         row2 += '</tr>';
         tableHTML += row2;

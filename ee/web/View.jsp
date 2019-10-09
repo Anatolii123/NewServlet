@@ -222,9 +222,6 @@
   <input type="checkbox" id="cbx" style="display:none"/>
   <label for="cbx" class="toggle"><span></span></label>
 </div>
-<%--  <c:if test="${}">--%>
-
-<%--  </c:if>--%>
 </form>
 </body>
 </html>
