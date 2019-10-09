@@ -15,11 +15,6 @@ public class Controller extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req,resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("utf-8");
         req.setCharacterEncoding("utf-8");
         String login = req.getParameter("TEXT_3");
@@ -64,5 +59,10 @@ public class Controller extends HttpServlet {
         }
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Signup.jsp");
         requestDispatcher.forward(req,resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req,resp);
     }
 }
