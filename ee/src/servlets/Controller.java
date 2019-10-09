@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.*;
 
@@ -46,13 +47,16 @@ public class Controller extends HttpServlet {
                 req.setAttribute("gender", resultSet.getString("GENDER"));
                 req.setAttribute("bug", resultSet.getString("BUG"));
                 req.setAttribute("comments", (resultSet.getString("COMMENTS") == null)? "не задано":resultSet.getString("COMMENTS"));
+                req.getSession().setAttribute("TEXT_3",null);
+                req.getSession().setAttribute("TEXT_4",null);
+                req.getSession().setAttribute("TEXT_3",resultSet.getString("EMAIL"));
+                req.getSession().setAttribute("TEXT_4",resultSet.getString("PASSWORD"));
             }
             connection.close();
         } catch (Exception e) {
             System.out.println(e);
         }
-        req.getSession().setAttribute("user",user);
-        if (login.equals(req.getAttribute("email")) && password.equals(req.getAttribute("password"))) {
+        if (login.equals(req.getSession().getAttribute("TEXT_3")) && password.equals(req.getSession().getAttribute("TEXT_4"))) {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(req,resp);
             return;

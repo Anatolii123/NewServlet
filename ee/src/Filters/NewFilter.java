@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import static java.util.Objects.*;
 
+
 public class NewFilter implements Filter {
 
     @Override
@@ -17,10 +18,10 @@ public class NewFilter implements Filter {
 
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
+        HttpSession session = req.getSession();
+
         String login = req.getParameter("TEXT_3");
         String password = req.getParameter("TEXT_4");
-
-        final HttpSession session = req.getSession();
 
         servletResponse.setCharacterEncoding("utf-8");
         servletRequest.setCharacterEncoding("utf-8");
@@ -33,7 +34,15 @@ public class NewFilter implements Filter {
             if (nonNull(session) &&
                     nonNull(session.getAttribute("TEXT_3")) &&
                     nonNull(session.getAttribute("TEXT_4"))) {
-                filterChain.doFilter(req,resp);
+                req.setAttribute("name", session.getAttribute("TEXT_1"));
+                req.setAttribute("surname", session.getAttribute("TEXT_2"));
+                req.setAttribute("email", session.getAttribute("TEXT_3"));
+                req.setAttribute("dateOfBirth", session.getAttribute("TEXT_6"));
+                req.setAttribute("gender", session.getAttribute("TEXT_7"));
+                req.setAttribute("bug", session.getAttribute("TEXT_8"));
+                req.setAttribute("comments", (servletRequest.getAttribute("comments") == null)? "не задано":servletRequest.getAttribute("comments"));
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
+                requestDispatcher.forward(req,resp);
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
                     "'" + login +"'" +
                     " AND PASSWORD = " +

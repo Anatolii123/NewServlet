@@ -145,8 +145,8 @@
 <body>
 <form name="account" id="account">
   <h3><%=request.getAttribute("registration") != null ? request.getAttribute("registration"):""%></h3>
-  <p>Имя: <%=(request.getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
-  <p>Фамилия: <%=(request.getAttribute("surname") == "" ? "не заполнено": request.getAttribute("surname"))%></p>
+  <p>Имя: <%=(request.getSession().getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
+  <p>Фамилия: <%=(request.getSession().getAttribute("surname") == "" ? "не заполнено": request.getAttribute("surname"))%></p>
   <p>Email: <%=(request.getAttribute("email") == "" ? "не заполнено": request.getAttribute("email"))%></p>
   <p>Дата рождения: <%=(request.getAttribute("dateOfBirth") == "" ? "не заполнено": request.getAttribute("dateOfBirth"))%></p>
   <p>Пол: <%=(request.getAttribute("gender") == "" ? "не заполнено": request.getAttribute("gender"))%></p>
