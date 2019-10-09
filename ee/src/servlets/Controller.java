@@ -25,12 +25,10 @@ public class Controller extends HttpServlet {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
-                    "'" + login +"'" +
-                    " AND PASSWORD = " +
-                    "'" + password +"'" +
-                    "");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PEOPLE WHERE EMAIL = ? AND PASSWORD = ?");
+            preparedStatement.setString(1, login);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 user.setName(resultSet.getString("NAME"));
                 user.setSurName(resultSet.getString("SURNAME"));

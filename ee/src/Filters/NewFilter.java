@@ -34,7 +34,7 @@ public class NewFilter implements Filter {
             if (nonNull(session) &&
                     nonNull(session.getAttribute("TEXT_3")) &&
                     nonNull(session.getAttribute("TEXT_4"))) {
-                req.setAttribute("name", session.getAttribute("TEXT_1"));
+                req.setAttribute("name", req.getAttribute("name"));
                 req.setAttribute("surname", session.getAttribute("TEXT_2"));
                 req.setAttribute("email", session.getAttribute("TEXT_3"));
                 req.setAttribute("dateOfBirth", session.getAttribute("TEXT_6"));
