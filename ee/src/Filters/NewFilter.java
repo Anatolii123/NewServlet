@@ -14,11 +14,22 @@ import static java.util.Objects.*;
 public class NewFilter implements Filter {
 
     @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
+
+        String path = req.getRequestURI().substring(req.getContextPath().length());
+        if (!path.startsWith("8080/ee_war_exploded/Signin.jsp")) {
+            filterChain.doFilter(req, resp);
+            return;
+        }
 
         String login = req.getParameter("TEXT_3");
         String password = req.getParameter("TEXT_4");
@@ -31,9 +42,7 @@ public class NewFilter implements Filter {
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
             Statement statement = connection.createStatement();
 
-            if (nonNull(session) &&
-                    nonNull(session.getAttribute("TEXT_3")) &&
-                    nonNull(session.getAttribute("TEXT_4"))) {
+            if (req.getSession().getAttribute("user") != null) {
                 req.setAttribute("name", req.getAttribute("name"));
                 req.setAttribute("surname", session.getAttribute("TEXT_2"));
                 req.setAttribute("email", session.getAttribute("TEXT_3"));

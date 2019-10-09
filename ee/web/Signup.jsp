@@ -50,7 +50,7 @@
 </head>
 <body>
 <h3>Вы не зарегистрированы! Введите данные для регистрации.</h3>
-<form action="AddToDB.jsp" method="post">
+<form action="../src/servlets/AddToDB.jsp" method="post">
     <table width="200%" cellspacing="0" cellpadding="4">
         <tr>
             <td align="right" width="150">Имя:</td>

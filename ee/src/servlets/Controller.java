@@ -33,28 +33,30 @@ public class Controller extends HttpServlet {
                 user.setName(resultSet.getString("NAME"));
                 user.setSurName(resultSet.getString("SURNAME"));
                 user.setEmail(resultSet.getString("EMAIL"));
+                user.setPassword(resultSet.getString("PASSWORD"));
                 user.setDateOfBirth(resultSet.getString("DATE_OF_BIRTH"));
                 user.setGender(resultSet.getString("GENDER"));
                 user.setBug(resultSet.getString("BUG"));
                 user.setComments((resultSet.getString("COMMENTS") == null)? "не задано":resultSet.getString("COMMENTS"));
-                req.setAttribute("name", resultSet.getString("NAME"));
-                req.setAttribute("surname", resultSet.getString("SURNAME"));
-                req.setAttribute("email", resultSet.getString("EMAIL"));
-                req.setAttribute("password", resultSet.getString("PASSWORD"));
-                req.setAttribute("dateOfBirth", resultSet.getString("DATE_OF_BIRTH"));
-                req.setAttribute("gender", resultSet.getString("GENDER"));
-                req.setAttribute("bug", resultSet.getString("BUG"));
-                req.setAttribute("comments", (resultSet.getString("COMMENTS") == null)? "не задано":resultSet.getString("COMMENTS"));
-                req.getSession().setAttribute("TEXT_3",null);
-                req.getSession().setAttribute("TEXT_4",null);
-                req.getSession().setAttribute("TEXT_3",resultSet.getString("EMAIL"));
-                req.getSession().setAttribute("TEXT_4",resultSet.getString("PASSWORD"));
+//                req.getSession().setAttribute("user",user);
+//                req.setAttribute("name", resultSet.getString("NAME"));
+//                req.setAttribute("surname", resultSet.getString("SURNAME"));
+//                req.setAttribute("email", resultSet.getString("EMAIL"));
+//                req.setAttribute("password", resultSet.getString("PASSWORD"));
+//                req.setAttribute("dateOfBirth", resultSet.getString("DATE_OF_BIRTH"));
+//                req.setAttribute("gender", resultSet.getString("GENDER"));
+//                req.setAttribute("bug", resultSet.getString("BUG"));
+//                req.setAttribute("comments", (resultSet.getString("COMMENTS") == null)? "не задано":resultSet.getString("COMMENTS"));
+//                req.getSession().setAttribute("TEXT_3",null);
+//                req.getSession().setAttribute("TEXT_4",null);
+//                req.getSession().setAttribute("TEXT_3",resultSet.getString("EMAIL"));
+//                req.getSession().setAttribute("TEXT_4",resultSet.getString("PASSWORD"));
             }
             connection.close();
         } catch (Exception e) {
             System.out.println(e);
         }
-        if (login.equals(req.getSession().getAttribute("TEXT_3")) && password.equals(req.getSession().getAttribute("TEXT_4"))) {
+        if (req.getSession().getAttribute("user") != null) {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(req,resp);
             return;
