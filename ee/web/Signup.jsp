@@ -2,7 +2,7 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %><%--
   Created by IntelliJ IDEA.
-  User: kusakin
+  servlets.User: kusakin
   Date: 08.10.2019
   Time: 12:55
   To change this template use File | Settings | File Templates.
@@ -50,7 +50,7 @@
 </head>
 <body>
 <h3>Вы не зарегистрированы! Введите данные для регистрации.</h3>
-<form action="AddToDB.jsp" method="post">
+<form action="AddToDB.jsp">
     <table width="200%" cellspacing="0" cellpadding="4">
         <tr>
             <td align="right" width="150">Имя:</td>

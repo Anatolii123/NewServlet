@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
-  User: Анатолий
+  servlets.User: Анатолий
   Date: 28.09.2019
   Time: 16:42
   To change this template use File | Settings | File Templates.
@@ -46,27 +46,6 @@
       font-family: Verdana, Arial, Helvetica, sans-serif;
       text-align: center
     }
-    /*td {*/
-    /*  font-size: 120%;*/
-    /*  font-family: Verdana, Helvetica, sans-serif;*/
-    /*  text-align: center;*/
-    /*  border-collapse: collapse;*/
-    /*  transition: .5s;*/
-    /*  background-color: #ddd;*/
-    /*  border: #ddd;*/
-    /*  width: 40px;*/
-    /*  height: 40px;*/
-    /*}*/
-    /*td:hover {*/
-    /*  font-size: 100%;*/
-    /*  font-weight: 600;*/
-    /*  color: white;*/
-    /*  border: #4285F4;*/
-    /*  background-color: #4285F4;*/
-    /*  transition: .5s;*/
-    /*  width: 60px;*/
-    /*  height: 60px;*/
-    /*}*/
     td.Change{
       borderColor: rgb(51,54,57);
       color: white;
