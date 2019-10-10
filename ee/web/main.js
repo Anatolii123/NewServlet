@@ -89,6 +89,7 @@ function fun2() {
     document.body.appendChild(secondMat);
 }
 fun2();
+
 cbx.onclick = function() {
     if(document.body.className != "Change") {
         document.account.classList.add("Change");

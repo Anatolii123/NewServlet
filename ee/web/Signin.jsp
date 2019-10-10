@@ -1,4 +1,4 @@
-<%--
+<%@ page import="servlets.User" %><%--
   Created by IntelliJ IDEA.
   servlets.User: kusakin
   Date: 08.10.2019

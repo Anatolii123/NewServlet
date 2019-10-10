@@ -12,6 +12,14 @@
         <filter-name>MyFilter</filter-name>
         <url-pattern>/Controller</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>MyFilter</filter-name>
+        <url-pattern>/Signup.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>MyFilter</filter-name>
+        <url-pattern>/View.jsp</url-pattern>
+    </filter-mapping>
     <welcome-file-list>
         <welcome-file>Signin.jsp</welcome-file>
     </welcome-file-list>

@@ -144,7 +144,7 @@
   <script async src="main.js"></script>
   </head>
 <body>
-<form name="account" id="account">
+<form name="account" id="account" action="LogOut">
   <h3><%=request.getAttribute("registration") != null ? request.getAttribute("registration"):""%></h3>
   <p>Имя: <%=(request.getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
   <p>Фамилия: <%=(request.getAttribute("surname") == "" ? "не заполнено": request.getAttribute("surname"))%></p>
@@ -153,6 +153,7 @@
   <p>Пол: <%=(request.getAttribute("gender") == "" ? "не заполнено": request.getAttribute("gender"))%></p>
   <p >О баге: <%=(request.getAttribute("bug") == "" ? "не заполнено": request.getAttribute("bug"))%></p>
   <p>Комментарий: <%=(request.getAttribute("comments") == "" ? "не заполнено": request.getAttribute("comments"))%></p>
+  <input type="submit" value="Выйти">
 </form>
 <form name="myform" id="form" oninput="range1value.value = range1.valueAsNumber">
   <input name="range1" type="range" id="r1" step="1" min="1" oninput="fun()" max="16" list="tickmarks" value="4">
