@@ -24,32 +24,31 @@ public class NewFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-
         String path = req.getRequestURI().substring(req.getContextPath().length());
+        String login = req.getParameter("TEXT_3");
+        String password = req.getParameter("TEXT_4");
+        servletResponse.setCharacterEncoding("utf-8");
+        servletRequest.setCharacterEncoding("utf-8");
+        String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.151:1521:gmudb";
+
         if (!path.startsWith("8080/ee_war_exploded/Signin.jsp")) {
             filterChain.doFilter(req, resp);
             return;
         }
 
-        String login = req.getParameter("TEXT_3");
-        String password = req.getParameter("TEXT_4");
-
-        servletResponse.setCharacterEncoding("utf-8");
-        servletRequest.setCharacterEncoding("utf-8");
-        String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.151:1521:gmudb";
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
             Statement statement = connection.createStatement();
 
             if (req.getSession().getAttribute("user") != null) {
-                req.setAttribute("name", req.getAttribute("name"));
-                req.setAttribute("surname", session.getAttribute("TEXT_2"));
-                req.setAttribute("email", session.getAttribute("TEXT_3"));
-                req.setAttribute("dateOfBirth", session.getAttribute("TEXT_6"));
-                req.setAttribute("gender", session.getAttribute("TEXT_7"));
-                req.setAttribute("bug", session.getAttribute("TEXT_8"));
-                req.setAttribute("comments", (servletRequest.getAttribute("comments") == null)? "не задано":servletRequest.getAttribute("comments"));
+                req.getSession().setAttribute("name", req.getAttribute("name"));
+                req.getSession().setAttribute("surname", session.getAttribute("TEXT_2"));
+                req.getSession().setAttribute("email", session.getAttribute("TEXT_3"));
+                req.getSession().setAttribute("dateOfBirth", session.getAttribute("TEXT_6"));
+                req.getSession().setAttribute("gender", session.getAttribute("TEXT_7"));
+                req.getSession().setAttribute("bug", session.getAttribute("TEXT_8"));
+                req.getSession().setAttribute("comments", (servletRequest.getAttribute("comments") == null)? "не задано":servletRequest.getAttribute("comments"));
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
                 requestDispatcher.forward(req,resp);
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
@@ -65,6 +64,7 @@ public class NewFilter implements Filter {
                 requestDispatcher.forward(req,resp);
                 return;
             }
+
 //            if (!statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
 //                    "'" + login +"'" +
 //                    " AND PASSWORD = " +
