@@ -4,7 +4,6 @@ import servlets.Controller;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,7 +29,15 @@ public class NewFilter implements Filter {
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
             Statement statement = connection.createStatement();
 
-            if (req.getSession().getAttribute("user") != null) {
+            if (req.getSession().getAttribute("user") != null ||
+                    (req.getParameter("TEXT_1") != "" &&
+                            req.getParameter("TEXT_2") != "" &&
+                            req.getParameter("TEXT_3") != "" &&
+                            req.getParameter("TEXT_4") != "" &&
+                            req.getParameter("TEXT_6") != "" &&
+                            req.getParameter("TEXT_7") != "" &&
+                            req.getParameter("TEXT_8") != "" &&
+                            req.getParameter("TEXT_9") != "")) {
                 Controller.setRequestAttributes(req);
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
                 requestDispatcher.forward(req,resp);
