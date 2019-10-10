@@ -10,7 +10,7 @@
     </filter>
     <filter-mapping>
         <filter-name>MyFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/Controller</url-pattern>
     </filter-mapping>
     <welcome-file-list>
         <welcome-file>Signin.jsp</welcome-file>

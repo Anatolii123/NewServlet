@@ -31,40 +31,47 @@ public class NewFilter implements Filter {
         servletRequest.setCharacterEncoding("utf-8");
         String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.151:1521:gmudb";
 
-        if (!path.startsWith("8080/ee_war_exploded/Signin.jsp")) {
-            filterChain.doFilter(req, resp);
-            return;
-        }
+//        if (!path.startsWith("8080/ee_war_exploded/Signin.jsp")) {
+//            filterChain.doFilter(req, resp);
+//            return;
+//        }
 
         try {
+
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
             Statement statement = connection.createStatement();
 
             if (req.getSession().getAttribute("user") != null) {
-                req.getSession().setAttribute("name", req.getAttribute("name"));
-                req.getSession().setAttribute("surname", session.getAttribute("TEXT_2"));
-                req.getSession().setAttribute("email", session.getAttribute("TEXT_3"));
-                req.getSession().setAttribute("dateOfBirth", session.getAttribute("TEXT_6"));
-                req.getSession().setAttribute("gender", session.getAttribute("TEXT_7"));
-                req.getSession().setAttribute("bug", session.getAttribute("TEXT_8"));
-                req.getSession().setAttribute("comments", (servletRequest.getAttribute("comments") == null)? "не задано":servletRequest.getAttribute("comments"));
+                    req.setAttribute("name", req.getSession().getAttribute("name"));
+                    req.setAttribute("surname", req.getSession().getAttribute("surname"));
+                    req.setAttribute("email", req.getSession().getAttribute("email"));
+                    req.setAttribute("dateOfBirth", req.getSession().getAttribute("dateOfBirth"));
+                    req.setAttribute("gender", req.getSession().getAttribute("gender"));
+                    req.setAttribute("bug", req.getSession().getAttribute("bug"));
+                    req.setAttribute("comments", (req.getSession().getAttribute("comments") == null)? "не задано":req.getSession().getAttribute("comments"));
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
                 requestDispatcher.forward(req,resp);
+                return;
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
                     "'" + login +"'" +
                     " AND PASSWORD = " +
                     "'" + password +"'" +
                     "").next()) {
-                req.getSession().setAttribute("TEXT_3", login);
-                req.getSession().setAttribute("TEXT_4", password);
+                req.setAttribute("name", req.getSession().getAttribute("name"));
+                req.setAttribute("surname", req.getSession().getAttribute("surname"));
+                req.setAttribute("email", req.getSession().getAttribute("email"));
+                req.setAttribute("dateOfBirth", req.getSession().getAttribute("dateOfBirth"));
+                req.setAttribute("gender", req.getSession().getAttribute("gender"));
+                req.setAttribute("bug", req.getSession().getAttribute("bug"));
+                req.setAttribute("comments", (req.getSession().getAttribute("comments") == null)? "не задано":req.getSession().getAttribute("comments"));
                 filterChain.doFilter(req,resp);
+                return;
             } else {
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Signup.jsp");
                 requestDispatcher.forward(req,resp);
                 return;
             }
-
 //            if (!statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
 //                    "'" + login +"'" +
 //                    " AND PASSWORD = " +

@@ -145,14 +145,14 @@
   </head>
 <body>
 <form name="account" id="account">
-  <h3><%=request.getSession().getAttribute("registration") != null ? request.getAttribute("registration"):""%></h3>
-  <p>Имя: <%=(request.getSession().getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
-  <p>Фамилия: <%=(request.getSession().getAttribute("surname") == "" ? "не заполнено": request.getAttribute("surname"))%></p>
-  <p>Email: <%=(request.getSession().getAttribute("email") == "" ? "не заполнено": request.getAttribute("email"))%></p>
-  <p>Дата рождения: <%=(request.getSession().getAttribute("dateOfBirth") == "" ? "не заполнено": request.getAttribute("dateOfBirth"))%></p>
-  <p>Пол: <%=(request.getSession().getAttribute("gender") == "" ? "не заполнено": request.getAttribute("gender"))%></p>
-  <p >О баге: <%=(request.getSession().getAttribute("bug") == "" ? "не заполнено": request.getAttribute("bug"))%></p>
-  <p>Комментарий: <%=(request.getSession().getAttribute("comments") == "" ? "не заполнено": request.getAttribute("comments"))%></p>
+  <h3><%=request.getAttribute("registration") != null ? request.getAttribute("registration"):""%></h3>
+  <p>Имя: <%=(request.getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
+  <p>Фамилия: <%=(request.getAttribute("surname") == "" ? "не заполнено": request.getAttribute("surname"))%></p>
+  <p>Email: <%=(request.getAttribute("email") == "" ? "не заполнено": request.getAttribute("email"))%></p>
+  <p>Дата рождения: <%=(request.getAttribute("dateOfBirth") == "" ? "не заполнено": request.getAttribute("dateOfBirth"))%></p>
+  <p>Пол: <%=(request.getAttribute("gender") == "" ? "не заполнено": request.getAttribute("gender"))%></p>
+  <p >О баге: <%=(request.getAttribute("bug") == "" ? "не заполнено": request.getAttribute("bug"))%></p>
+  <p>Комментарий: <%=(request.getAttribute("comments") == "" ? "не заполнено": request.getAttribute("comments"))%></p>
 </form>
 <form name="myform" id="form" oninput="range1value.value = range1.valueAsNumber">
   <input name="range1" type="range" id="r1" step="1" min="1" oninput="fun()" max="16" list="tickmarks" value="4">
