@@ -26,10 +26,9 @@ public class Controller extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("utf-8");
         req.setCharacterEncoding("utf-8");
-        String login;
-        String password;
-        login = req.getParameter("TEXT_3");
-        password = req.getParameter("TEXT_4");
+        String path = req.getRequestURI().substring(req.getContextPath().length());
+        String login = req.getParameter("TEXT_3");
+        String password = req.getParameter("TEXT_4");
 
         String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.151:1521:gmudb";
         User user = new User();
@@ -56,7 +55,7 @@ public class Controller extends HttpServlet {
         } catch (Exception e) {
             System.out.println(e);
         }
-        if (req.getSession().getAttribute("user") != null) {
+        if (req.getSession().getAttribute("user") != null || path.startsWith("/AddToDB")) {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(req,resp);
             return;
