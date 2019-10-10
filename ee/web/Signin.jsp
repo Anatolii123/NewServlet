@@ -47,7 +47,8 @@
     </style>
 </head>
 <body>
-<form action="Controller" method="post">
+<h3><%=request.getAttribute("loginError") != null ? request.getAttribute("loginError"):""%></h3>
+<form action="LogIn" method="post">
     <table width="200%" cellspacing="0" cellpadding="4">
         <tr>
             <td align="right">Email:</td>

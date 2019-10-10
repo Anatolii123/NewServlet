@@ -30,12 +30,17 @@ public class NewFilter implements Filter {
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
             Statement statement = connection.createStatement();
 
-            if (req.getSession().getAttribute("user") != null) {
+            if (req.getSession().getAttribute("user") != null && !path.startsWith("/LogOut")) {
                 Controller.setRequestAttributes(req);
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
                 requestDispatcher.forward(req,resp);
                 return;
-            }  else if (path.startsWith("/AddToDB")) {
+            }  else if (path.startsWith("/LogOut")) {
+                req.getSession().setAttribute("user",null);
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Signin.jsp");
+                requestDispatcher.forward(req,resp);
+                return;
+            } else if (path.startsWith("/AddToDB")) {
                 req.getSession().setAttribute("name", req.getParameter("TEXT_1"));
                 req.getSession().setAttribute("surname", req.getParameter("TEXT_2"));
                 req.getSession().setAttribute("email", req.getParameter("TEXT_3"));

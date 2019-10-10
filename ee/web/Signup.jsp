@@ -50,6 +50,7 @@
 </head>
 <body>
 <h3>Вы не зарегистрированы! Введите данные для регистрации.</h3>
+<h3><%=request.getAttribute("passwordError") != null ? request.getAttribute("passwordError"):""%></h3>
 <form action="AddToDB" method="post">
     <table width="200%" cellspacing="0" cellpadding="4">
         <tr>

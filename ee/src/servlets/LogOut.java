@@ -12,7 +12,7 @@ import java.io.IOException;
 public class LogOut extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().setAttribute("user",null);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signin.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Controller");
         requestDispatcher.forward(request,response);
     }
 }

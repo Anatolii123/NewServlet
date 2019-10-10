@@ -59,6 +59,9 @@ public class Controller extends HttpServlet {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(req,resp);
             return;
+        } else if (path.startsWith("/LogOut")) {
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Signin.jsp");
+            requestDispatcher.forward(req,resp);
         }
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Signup.jsp");
         requestDispatcher.forward(req,resp);

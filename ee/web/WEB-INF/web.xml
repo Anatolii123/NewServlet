@@ -18,6 +18,10 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>MyFilter</filter-name>
+        <url-pattern>/LogOut</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>MyFilter</filter-name>
         <url-pattern>/Signup.jsp</url-pattern>
     </filter-mapping>
     <filter-mapping>
