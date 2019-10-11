@@ -31,7 +31,7 @@ public class MatrixCalc extends HttpServlet {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(request,response);
         }
-        request.setAttribute("CalcError",request.getParameter("11")+request.getParameter("12"));
+        request.setAttribute("CalcError",request.getParameter("11") + " " + request.getParameter("12"));
         Controller.setRequestAttributes(request);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
         requestDispatcher.forward(request,response);

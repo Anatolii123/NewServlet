@@ -20,11 +20,9 @@ function fun() {
     s12.style.width = s12.value.toString() != '' ? (s12.value.toString().length*14).toString() + 'px': '14px';
     s21.style.width = s11.style.width;
     s22.style.width = s12.style.width;
-    var mainrow = '<tr><td><input type="text" maxlength="50" size="5" name="11" ' +
+    var mainrow = '<tr><td><input type="text" maxlength="50" size="5" name="name1" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
-    // document.getElementById('11').style.width =
-    //     document.getElementById('11').value.toString() != '' ?
-    //         (document.getElementById('11').value.toString().length*14).toString() + 'px': '14px';
+    print();
     for (var i = 1; i < sz12; i++) {
         mainrow += '<td><input type="text" maxlength="50" size="5" name="1' + (i+1).toString() +
         '" onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
