@@ -45,37 +45,40 @@
             border: 1px solid #f1f1f1;
             margin-bottom: 25px;
         }
+        h4 {
+            color: red;
+        }
 
     </style>
 </head>
 <body>
 <h3>Вы не зарегистрированы! Введите данные для регистрации.</h3>
-<h3><%=request.getAttribute("passwordError") != null ? request.getAttribute("passwordError"):""%></h3>
+<h4><%=request.getAttribute("Error") != null ? request.getAttribute("Error"):""%></h4>
 <form action="AddToDB" method="post">
     <table width="200%" cellspacing="0" cellpadding="4">
         <tr>
-            <td align="right" width="150">Имя:</td>
-            <td><input type="text" name="TEXT_1" maxlength="50" size="20"></td>
+            <td align="right" width="150">*Имя:</td>
+            <td><input type="text" name="TEXT_1" maxlength="50" size="20" value="<%=request.getAttribute("name") != null ? request.getAttribute("name"):""%>"></td>
         </tr>
         <tr>
-            <td align="right">Фамилия:</td>
-            <td><input type="text" name="TEXT_2" maxlength="50" size="20"></td>
+            <td align="right">*Фамилия:</td>
+            <td><input type="text" name="TEXT_2" maxlength="50" size="20" value="<%=request.getAttribute("surname") != null ? request.getAttribute("surname"):""%>"></td>
         </tr>
         <tr>
-            <td align="right">Email:</td>
-            <td><input type="text" name="TEXT_3" maxlength="50" size="20"></td>
+            <td align="right">*Email:</td>
+            <td><input type="text" name="TEXT_3" maxlength="50" size="20" value="<%=request.getAttribute("email") != null ? request.getAttribute("email"):""%>"></td>
         </tr>
         <tr>
-            <td align="right">Пароль:</td>
-            <td><input type="text" name="TEXT_4" maxlength="50" size="20"></td>
+            <td align="right">*Пароль:</td>
+            <td><input type="text" name="TEXT_4" maxlength="50" size="20" value="<%=request.getAttribute("password") != null ? request.getAttribute("password"):""%>"></td>
         </tr>
         <tr>
-            <td align="right">Подтверждение пароля:</td>
-            <td><input type="text" name="TEXT_5" maxlength="50" size="20"></td>
+            <td align="right">*Подтверждение пароля:</td>
+            <td><input type="text" name="TEXT_5" maxlength="50" size="20" value="<%=request.getAttribute("copypassword") != null ? request.getAttribute("copypassword"):""%>"></td>
         </tr>
         <tr>
-            <td align="right">Дата рождения:</td>
-            <td><input type="text" name="TEXT_6" maxlength="50" size="20"></td>
+            <td align="right">*Дата рождения:</td>
+            <td><input type="text" name="TEXT_6" maxlength="50" size="20" value="<%=request.getAttribute("dateOfBirth") != null ? request.getAttribute("dateOfBirth"):""%>"></td>
         </tr>
         <tr>
             <td align="right">Пол:</td>
@@ -99,6 +102,7 @@
             <td><textarea name="TEXT_9" cols="49" rows="10"></textarea></td>
         </tr>
     </table>
+    <p>* - поля, обязательные для заполнения</p>
     <br>
     <input type="submit" value="Регистрация">
 </form>

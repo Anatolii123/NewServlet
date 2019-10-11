@@ -52,7 +52,7 @@
     <table width="200%" cellspacing="0" cellpadding="4">
         <tr>
             <td align="right">Email:</td>
-            <td><input type="text" name="TEXT_3" maxlength="50" size="20"></td>
+            <td><input type="text" name="TEXT_3" maxlength="50" size="20" value="<%=request.getAttribute("log") != null ? request.getAttribute("log"):""%>"></td>
         </tr>
         <tr>
             <td align="right">Пароль:</td>

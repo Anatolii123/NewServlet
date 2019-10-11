@@ -35,6 +35,7 @@ public class LogIn extends HttpServlet {
                     !statement.executeQuery("SELECT * FROM PEOPLE WHERE PASSWORD = " +
                             "'" + request.getParameter("TEXT_4") + "'" +
                             "").next()) {
+                request.setAttribute("log",request.getParameter("TEXT_3"));
                 request.setAttribute("loginError","Пароль введён неверно! Попробуйте ещё раз.");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signin.jsp");
                 requestDispatcher.forward(request,response);
