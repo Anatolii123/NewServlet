@@ -1,13 +1,7 @@
-var rng = document.getElementById('r1');
-rng.style.transform = 'rotate(90deg)';
-rng.style.transformOrigin = '20px 20px';
-var rng2 = document.getElementById('r2');
-rng2.style.transform = 'rotate(90deg)';
-rng2.style.transformOrigin = '20px 20px';
-rng2.style.position = 'relative';
-rng2.style.top = '110px';
-document.getElementById('rv2').style.position = 'relative';
-document.getElementById('rv2').style.top = '110px';
+var s11 = document.getElementById('sz11');
+var s12 = document.getElementById('sz12');
+var s21 = document.getElementById('sz21');
+var s22 = document.getElementById('sz22');
 var firstMat = document.createElement('table');
 var secondMat = document.createElement('table');
 firstMat.style.top = '10%';
@@ -20,19 +14,20 @@ function proverka(input) {
 };
 
 function fun() {
-    n = rng.value;
+    sz11 = s11.value;
+    sz12 = s12.value;
     var mainrow = '<tr><td><input type="text" maxlength="50" size="5" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
-    for (var i = 0; i < n-1; i++) {
+    for (var i = 0; i < sz12-1; i++) {
         mainrow += '<td><input type="text" maxlength="50" size="5" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
     }
     mainrow += '</tr>';
     var tableHTML = mainrow;
-    for (var i = 0; i < n-1; i++){
+    for (var i = 0; i < sz11-1; i++){
         row = '<tr><td><input type="text" maxlength="50" size="5" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
-        for (var j = 0; j < n-1; j++) {
+        for (var j = 0; j < sz12-1; j++) {
             row += '<td><input type="text" maxlength="50" size="5" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
         }
@@ -55,19 +50,20 @@ function fun() {
 }
 fun();
 function fun2() {
-    n2 = rng2.value;
+    sz21 = s21.value;
+    sz22 = s22.value;
     var mainrow = '<tr><td><input type="text" maxlength="50" size="5" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
-    for (var i = 0; i < n2-1; i++) {
+    for (var i = 0; i < sz22-1; i++) {
         mainrow += '<td><input type="text" maxlength="50" size="5" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
     }
     mainrow += '</tr>';
     var tableHTML = mainrow;
-    for (var i = 0; i < n2-1; i++){
+    for (var i = 0; i < sz21-1; i++){
         row2 = '<tr><td><input type="text" maxlength="50" size="5" ' +
          'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
-        for (var j = 0; j < n2-1; j++) {
+        for (var j = 0; j < sz22-1; j++) {
             row2 += '<td><input type="text" maxlength="50" size="5" ' +
          'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
         }
@@ -98,8 +94,6 @@ cbx.onclick = function() {
         document.body.classList.remove("Unchange");
         document.myform.classList.add("Change");
         document.myform.classList.remove("Unchange");
-        document.myform2.classList.add("Change");
-        document.myform2.classList.remove("Unchange");
         firstMat.caption.style.color = "white";
         firstMat.style.borderColor = "rgb(51,54,57)";
         for (var i = 0; i < firstMat.rows.length; i++) {
@@ -134,8 +128,6 @@ cbx.onclick = function() {
     document.account.classList.remove("Change");
     document.myform.classList.add("Unchange");
     document.myform.classList.remove("Change");
-    document.myform2.classList.add("Unchange");
-    document.myform2.classList.remove("Change");
     firstMat.caption.style.color = "black";
     firstMat.style.borderColor = "white";
     for (var i = 0; i < firstMat.rows.length; i++) {
