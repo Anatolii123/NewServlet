@@ -35,7 +35,7 @@ function fun() {
         tableHTML += row;
     }
     firstMat.innerHTML = tableHTML;
-    var table = firstMat.createCaption().innerHTML = "<b>Первая матрица</b>";
+    firstMat.createCaption().innerHTML = "<b>Первая матрица</b>";
     if (document.body.className == "Change"){
         firstMat.caption.style.color = "white";
         for (var i = 0; i < firstMat.rows.length; i++) {
@@ -92,8 +92,6 @@ cbx.onclick = function() {
         document.account.classList.remove("Unchange");
         document.body.classList.add("Change");
         document.body.classList.remove("Unchange");
-        document.myform.classList.add("Change");
-        document.myform.classList.remove("Unchange");
         firstMat.caption.style.color = "white";
         firstMat.style.borderColor = "rgb(51,54,57)";
         for (var i = 0; i < firstMat.rows.length; i++) {
@@ -126,8 +124,6 @@ cbx.onclick = function() {
     document.body.classList.remove("Change");
     document.account.classList.add("Unchange");
     document.account.classList.remove("Change");
-    document.myform.classList.add("Unchange");
-    document.myform.classList.remove("Change");
     firstMat.caption.style.color = "black";
     firstMat.style.borderColor = "white";
     for (var i = 0; i < firstMat.rows.length; i++) {

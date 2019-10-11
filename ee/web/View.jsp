@@ -231,7 +231,6 @@
 </datalist>
 <form name="myform2" id="form2" oninput="range2value.value = range2.valueAsNumber">
   <input name="range2" type="range" id="r2" step="1" min="1" oninput="fun2()" max="16" list="tickmarks2" value="4">
-  <output name="range2value" for="range2" id="rv2">4</output>
 </form>
 <datalist id="tickmarks2">
   <option value="1">
