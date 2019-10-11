@@ -42,6 +42,7 @@
       top: calc(50% - 325px);
       left: calc(50% - 380px);
     }
+
     caption {
       font-size: 150%;
       font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -122,7 +123,6 @@
       left: calc(50% - -800px);
     }
     input[type=text]{
-      width: 30%;
       padding: 15px;
       display: inline-block;
       border: none;
@@ -139,6 +139,34 @@
       background-color: #ddd;
       outline: none;
     }
+
+    table[name=size] {
+      border: white;
+      position: absolute;
+      top: 440px;
+      left: 0px;
+    }
+
+    table[name=size2] {
+      border: white;
+      position: absolute;
+      top: 490px;
+      left: 0px;
+    }
+
+    input[name=size] {
+      padding: 15px;
+      display: inline-block;
+      border: none;
+      background: #ddd;
+      font-size: 70%;
+      width: 14px;
+      height: 14px;
+      font-family: Verdana, Helvetica, sans-serif;
+      text-align: center;
+      border-collapse: collapse;
+    }
+
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   <script async src="main.js"></script>
@@ -156,6 +184,29 @@
   <input type="submit" value="Выйти">
 </form>
 <br><br><br>
+<form>
+  <table name="size">
+    <tr>
+      <td>Матрица 1: </td>
+      <td><input type="text" name="size" id="sz11" size="5"
+                 onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
+      <td> x </td>
+      <td><input type="text" name="size" id="sz12" size="5"
+                 onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
+    </tr>
+  </table>
+  <table name="size2">
+    <tr>
+      <td>Матрица 2:</td>
+      <td><input type="text" name="size" id="sz21" size="5"
+                 onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
+      <td> x </td>
+      <td><input type="text" name="size" id="sz22" size="5"
+                 onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
+    </tr>
+  </table>
+</form>
+<br><br><br><br><br><br>
 <form name="myform" id="form" oninput="range1value.value = range1.valueAsNumber">
   <input name="range1" type="range" id="r1" step="1" min="1" oninput="fun()" max="16" list="tickmarks" value="4">
   <output name="range1value" for="range1">4</output>
