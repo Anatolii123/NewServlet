@@ -191,7 +191,7 @@
       <td><b>Матрица 1: </b></td>
       <td><input type="text" name="size" id="sz11" size="5" oninput="fun()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
-      <td><b> x </b></td>
+      <td align="center"><b>x</b></td>
       <td><input type="text" name="size" id="sz12" size="5" oninput="fun()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
     </tr>
@@ -199,9 +199,16 @@
       <td><b>Матрица 2:</b></td>
       <td><input type="text" name="size" id="sz21" size="5" oninput="fun2()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
-      <td><b> x </b></td>
+      <td align="center"><b>x</b></td>
       <td><input type="text" name="size" id="sz22" size="5" oninput="fun2()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
+    </tr>
+    <tr>
+      <td><b>Операция: </b></td>
+      <td><input name="TEXT_8" type="radio" value="Аминь"> +</td>
+      <td><input name="TEXT_8" type="radio" value="Алюминь"> -</td>
+      <td><input name="TEXT_8" type="radio" value="Нет" checked> *</td>
+      </td>
     </tr>
   </table>
 </form>
