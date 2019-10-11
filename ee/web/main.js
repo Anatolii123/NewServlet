@@ -16,7 +16,10 @@ function proverka(input) {
 function fun() {
     sz11 = s11.value;
     sz12 = s12.value;
-    s11.style.width = (s11.value.toString().length*15 + 10).toString() + 'px';
+    s11.style.width = s11.value.toString() != '' ? (s11.value.toString().length*14).toString() + 'px': '14px';
+    s12.style.width = s12.value.toString() != '' ? (s12.value.toString().length*14).toString() + 'px': '14px';
+    s21.style.width = s11.style.width;
+    s22.style.width = s12.style.width;
     var mainrow = '<tr><td><input type="text" maxlength="50" size="5" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
     for (var i = 0; i < sz12-1; i++) {
