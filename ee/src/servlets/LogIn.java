@@ -31,11 +31,18 @@ public class LogIn extends HttpServlet {
                 requestDispatcher.forward(request,response);
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
                     "'" + request.getParameter("TEXT_3") + "'" +
+                    "").next() && request.getParameter("TEXT_4").equals("")) {
+                request.setAttribute("email",request.getParameter("TEXT_3"));
+                request.setAttribute("loginError","Введите пароль.");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signin.jsp");
+                requestDispatcher.forward(request,response);
+            } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
+                    "'" + request.getParameter("TEXT_3") + "'" +
                     "").next() &&
                     !statement.executeQuery("SELECT * FROM PEOPLE WHERE PASSWORD = " +
                             "'" + request.getParameter("TEXT_4") + "'" +
                             "").next()) {
-                request.setAttribute("log",request.getParameter("TEXT_3"));
+                request.setAttribute("email",request.getParameter("TEXT_3"));
                 request.setAttribute("loginError","Пароль введён неверно! Попробуйте ещё раз.");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signin.jsp");
                 requestDispatcher.forward(request,response);
