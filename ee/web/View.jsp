@@ -155,6 +155,7 @@
   <p>Комментарий: <%=(request.getAttribute("comments") == "" ? "не заполнено": request.getAttribute("comments"))%></p>
   <input type="submit" value="Выйти">
 </form>
+<br><br><br>
 <form name="myform" id="form" oninput="range1value.value = range1.valueAsNumber">
   <input name="range1" type="range" id="r1" step="1" min="1" oninput="fun()" max="16" list="tickmarks" value="4">
   <output name="range1value" for="range1">4</output>
