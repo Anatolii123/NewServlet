@@ -206,30 +206,6 @@
     </tr>
   </table>
 </form>
-<br><br><br><br><br><br>
-<form name="myform" id="form" oninput="range1value.value = range1.valueAsNumber">
-  <input name="range1" type="range" id="r1" step="1" min="1" oninput="fun()" max="16" list="tickmarks" value="4">
-</form>
-<datalist id="tickmarks">
-  <option value="1">
-  <option value="2">
-  <option value="3">
-  <option value="4">
-  <option value="5">
-  <option value="6">
-  <option value="7">
-  <option value="8">
-  <option value="9">
-  <option value="10">
-  <option value="11">
-  <option value="12">
-  <option value="13">
-  <option value="14">
-  <option value="15">
-  <option value="16">
-</datalist>
-<form name="myform2" id="form2" oninput="range2value.value = range2.valueAsNumber">
-</form>
 <div class="center">
   <input type="checkbox" id="cbx" style="display:none"/>
   <label for="cbx" class="toggle"><span></span></label>
