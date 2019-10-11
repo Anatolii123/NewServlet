@@ -155,13 +155,6 @@
       left: 0px;
     }
 
-    table[name=size2] {
-      border: white;
-      position: absolute;
-      top: 490px;
-      left: 0px;
-    }
-
     input[name=size] {
       padding: 15px;
       display: inline-block;
@@ -202,8 +195,6 @@
       <td><input type="text" name="size" id="sz12" size="5" oninput="fun()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
     </tr>
-  </table>
-  <table name="size2">
     <tr>
       <td><b>Матрица 2:</b></td>
       <td><input type="text" name="size" id="sz21" size="5" oninput="fun2()" value="4"
