@@ -1,6 +1,5 @@
 var s11 = document.getElementById('sz11');
 var s12 = document.getElementById('sz12');
-var head = document.getElementsByName('mtx');
 var s21 = document.getElementById('sz21');
 var s22 = document.getElementById('sz22');
 var firstMat = document.createElement('table');
@@ -17,6 +16,7 @@ function proverka(input) {
 function fun() {
     sz11 = s11.value;
     sz12 = s12.value;
+    s11.style.width = (s11.value.toString().length*15 + 10).toString() + 'px';
     var mainrow = '<tr><td><input type="text" maxlength="50" size="5" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
     for (var i = 0; i < sz12-1; i++) {

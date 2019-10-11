@@ -205,10 +205,12 @@
     </tr>
     <tr>
       <td><b>Операция: </b></td>
-      <td><input name="TEXT_8" type="radio" value="Sum" checked>+</td>
+      <td><input name="TEXT_8" type="radio"  value="Sum" checked>+</td>
       <td><input name="TEXT_8" type="radio" value="Sub">-</td>
       <td><input name="TEXT_8" type="radio" value="Mult">*</td>
-      </td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Вычислить"></td>
     </tr>
   </table>
 </form>
