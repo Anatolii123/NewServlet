@@ -206,11 +206,17 @@
       text-align: center;
       border-collapse: collapse;
     }
+    h4 {
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      color: red;
+    }
+
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   <script async src="main.js"></script>
   </head>
 <body>
+<h4><%=request.getAttribute("CalcError") != null ? request.getAttribute("CalcError"):""%></h4>
 <form name="account" id="account" action="LogOut">
   <h3><%=request.getAttribute("registration") != null ? request.getAttribute("registration"):""%></h3>
   <p>Имя: <%=(request.getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
@@ -223,7 +229,7 @@
   <input type="submit" value="Выйти" id="logout">
 </form>
 <br><br><br>
-<form name="mtx" id="mtx">
+<form name="mtx" id="mtx" action="MatrixCalc" method="post">
   <table name="size">
     <tr>
       <td><b>Матрица 1: </b></td>
@@ -243,9 +249,9 @@
     </tr>
     <tr>
       <td><b>Операция: </b></td>
-      <td><input name="TEXT_8" type="radio"  value="Sum" checked>+</td>
-      <td><input name="TEXT_8" type="radio" value="Sub">-</td>
-      <td><input name="TEXT_8" type="radio" value="Mult">*</td>
+      <td><input name="Operation" type="radio"  value="Sum" checked>+</td>
+      <td><input name="Operation" type="radio" value="Sub">-</td>
+      <td><input name="Operation" type="radio" value="Mult">*</td>
     </tr>
     <tr>
       <td><input type="submit" value="Вычислить"></td>
