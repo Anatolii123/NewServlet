@@ -187,20 +187,20 @@
 <form>
   <table name="size">
     <tr>
-      <td>Матрица 1: </td>
+      <td name="mtx"><b>Матрица 1: </b></td>
       <td><input type="text" name="size" id="sz11" size="5" oninput="fun()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
-      <td> x </td>
+      <td name="mtx"><b> x </b></td>
       <td><input type="text" name="size" id="sz12" size="5" oninput="fun()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
     </tr>
   </table>
   <table name="size2">
     <tr>
-      <td>Матрица 2:</td>
+      <td name="mtx"><b>Матрица 2:</b></td>
       <td><input type="text" name="size" id="sz21" size="5" oninput="fun2()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
-      <td> x </td>
+      <td name="mtx"><b> x </b></td>
       <td><input type="text" name="size" id="sz22" size="5" oninput="fun2()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
     </tr>

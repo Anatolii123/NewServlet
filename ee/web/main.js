@@ -35,7 +35,7 @@ function fun() {
         tableHTML += row;
     }
     firstMat.innerHTML = tableHTML;
-    firstMat.createCaption().innerHTML = "<b>Первая матрица</b>";
+    firstMat.createCaption().innerHTML = "<b>Матрица 1</b>";
     if (document.body.className == "Change"){
         firstMat.caption.style.color = "white";
         for (var i = 0; i < firstMat.rows.length; i++) {
@@ -71,7 +71,7 @@ function fun2() {
         tableHTML += row2;
     }
     secondMat.innerHTML = tableHTML;
-    var table = secondMat.createCaption().innerHTML = "<b>Вторая матрица</b>";
+    var table = secondMat.createCaption().innerHTML = "<b>Матрица 2</b>";
     if (document.body.className == "Change"){
         secondMat.caption.style.color = "white";
         for (var i = 0; i < secondMat.rows.length; i++) {
