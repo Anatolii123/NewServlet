@@ -155,7 +155,7 @@
       left: 0px;
     }
 
-    input[name=size] {
+    input[name=size11] {
       padding: 15px;
       display: inline-block;
       border: none;
@@ -168,6 +168,44 @@
       border-collapse: collapse;
     }
 
+    input[name=size12] {
+      padding: 15px;
+      display: inline-block;
+      border: none;
+      background: #ddd;
+      font-size: 70%;
+      width: 14px;
+      height: 14px;
+      font-family: Verdana, Helvetica, sans-serif;
+      text-align: center;
+      border-collapse: collapse;
+    }
+
+    input[name=size21] {
+      padding: 15px;
+      display: inline-block;
+      border: none;
+      background: #ddd;
+      font-size: 70%;
+      width: 14px;
+      height: 14px;
+      font-family: Verdana, Helvetica, sans-serif;
+      text-align: center;
+      border-collapse: collapse;
+    }
+
+    input[name=size22] {
+      padding: 15px;
+      display: inline-block;
+      border: none;
+      background: #ddd;
+      font-size: 70%;
+      width: 14px;
+      height: 14px;
+      font-family: Verdana, Helvetica, sans-serif;
+      text-align: center;
+      border-collapse: collapse;
+    }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   <script async src="main.js"></script>
@@ -189,18 +227,18 @@
   <table name="size">
     <tr>
       <td><b>Матрица 1: </b></td>
-      <td><input type="text" name="size" id="sz11" size="5" oninput="fun()" value="4"
+      <td><input type="text" name="size11" id="sz11" size="5" oninput="fun()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
       <td align="center"><b>x</b></td>
-      <td><input type="text" name="size" id="sz12" size="5" oninput="fun()" value="4"
+      <td><input type="text" name="size12" id="sz12" size="5" oninput="fun()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
     </tr>
     <tr>
       <td><b>Матрица 2:</b></td>
-      <td><input type="text" name="size" id="sz21" size="5" oninput="fun2()" value="4"
+      <td><input type="text" name="size21" id="sz21" size="5" oninput="fun2()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
       <td align="center"><b>x</b></td>
-      <td><input type="text" name="size" id="sz22" size="5" oninput="fun2()" value="4"
+      <td><input type="text" name="size22" id="sz22" size="5" oninput="fun2()" value="4"
                  onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
     </tr>
     <tr>
