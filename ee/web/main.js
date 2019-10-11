@@ -56,6 +56,10 @@ fun();
 function fun2() {
     sz21 = s21.value;
     sz22 = s22.value;
+    s21.style.width = s21.value.toString() != '' ? (s21.value.toString().length*14).toString() + 'px': '14px';
+    s22.style.width = s22.value.toString() != '' ? (s22.value.toString().length*14).toString() + 'px': '14px';
+    s11.style.width = s21.style.width;
+    s12.style.width = s22.style.width;
     var mainrow = '<tr><td><input type="text" maxlength="50" size="5" ' +
         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
     for (var i = 0; i < sz22-1; i++) {
