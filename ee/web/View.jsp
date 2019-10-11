@@ -205,9 +205,9 @@
     </tr>
     <tr>
       <td><b>Операция: </b></td>
-      <td><input name="TEXT_8" type="radio" value="Аминь"> +</td>
-      <td><input name="TEXT_8" type="radio" value="Алюминь"> -</td>
-      <td><input name="TEXT_8" type="radio" value="Нет" checked> *</td>
+      <td><input name="TEXT_8" type="radio" value="Sum" checked>+</td>
+      <td><input name="TEXT_8" type="radio" value="Sub">-</td>
+      <td><input name="TEXT_8" type="radio" value="Mult">*</td>
       </td>
     </tr>
   </table>
