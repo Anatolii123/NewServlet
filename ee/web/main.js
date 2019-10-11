@@ -1,5 +1,6 @@
 var s11 = document.getElementById('sz11');
 var s12 = document.getElementById('sz12');
+var head = document.getElementsByName('mtx');
 var s21 = document.getElementById('sz21');
 var s22 = document.getElementById('sz22');
 var firstMat = document.createElement('table');
@@ -94,6 +95,8 @@ cbx.onclick = function() {
         document.body.classList.remove("Unchange");
         firstMat.caption.style.color = "white";
         firstMat.style.borderColor = "rgb(51,54,57)";
+        document.mtx.classList.add("Change");
+        document.mtx.classList.remove("Unchange");
         for (var i = 0; i < firstMat.rows.length; i++) {
             var table = firstMat.rows[i].cells;
             for (var j = 0; j < table.length; j++) {
@@ -124,6 +127,8 @@ cbx.onclick = function() {
     document.body.classList.remove("Change");
     document.account.classList.add("Unchange");
     document.account.classList.remove("Change");
+    document.mtx.classList.add("Unchange");
+    document.mtx.classList.remove("Change");
     firstMat.caption.style.color = "black";
     firstMat.style.borderColor = "white";
     for (var i = 0; i < firstMat.rows.length; i++) {
