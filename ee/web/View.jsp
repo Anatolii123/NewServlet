@@ -14,6 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"
         http-equiv="Cache-Control" content="no-cache">
 <%--  <вынести стили в отдельный файл>--%>
+<%--  выровнять через divы--%>
+<%--  хранить сессию--%>
   <style>
     body{
       background-color: white;
