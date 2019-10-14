@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -223,13 +223,13 @@
 <h4><%=request.getAttribute("CalcError") != null ? request.getAttribute("CalcError"):""%></h4>
 <form name="account" id="account" action="LogOut">
   <h3><%=request.getAttribute("registration") != null ? request.getAttribute("registration"):""%></h3>
-  <p>Имя: <%=(request.getAttribute("name") == "" ? "не заполнено": request.getAttribute("name"))%></p>
-  <p>Фамилия: <%=(request.getAttribute("surname") == "" ? "не заполнено": request.getAttribute("surname"))%></p>
-  <p>Email: <%=(request.getAttribute("email") == "" ? "не заполнено": request.getAttribute("email"))%></p>
-  <p>Дата рождения: <%=(request.getAttribute("dateOfBirth") == "" ? "не заполнено": request.getAttribute("dateOfBirth"))%></p>
-  <p>Пол: <%=(request.getAttribute("gender") == "" ? "не заполнено": request.getAttribute("gender"))%></p>
-  <p >О баге: <%=(request.getAttribute("bug") == "" ? "не заполнено": request.getAttribute("bug"))%></p>
-  <p>Комментарий: <%=(request.getAttribute("comments") == "" ? "не заполнено": request.getAttribute("comments"))%></p>
+  <p>Имя: <c:out value="${requestScope.name eq '' ? 'не заполнено' : requestScope.name}"/></p>
+  <p>Фамилия: <c:out value="${requestScope.surname eq '' ? 'не заполнено' : requestScope.surname}"/></p>
+  <p>Email: <c:out value="${requestScope.email eq '' ? 'не заполнено' : requestScope.email}"/></p>
+  <p>Дата рождения: <c:out value="${requestScope.dateOfBirth eq '' ? 'не заполнено' : requestScope.dateOfBirth}"/></p>
+  <p>Пол: <c:out value="${requestScope.gender eq '' ? 'не заполнено' : requestScope.gender}"/></p>
+  <p >О баге: <c:out value="${requestScope.bug eq '' ? 'не заполнено' : requestScope.bug}"/></p>
+  <p>Комментарий: <c:out value="${requestScope.comments eq '' ? 'не заполнено' : requestScope.comments}"/></p>
   <input type="submit" value="Выйти" id="logout">
 </form>
 <br><br><br>
@@ -237,7 +237,8 @@
   <table name="size">
     <tr>
       <td><b>Матрица 1: </b></td>
-      <td><input type="text" name="size11" id="sz11" size="5" oninput="fun()" value="4"
+      <td><input type="text" name="size11" id="sz11" size="5" oninput="fun()"
+                 value="4"
                  onkeyup="return check(this);" onchange="return check(this);"></td>
       <td align="center"><b>x</b></td>
       <td><input type="text" name="size12" id="sz12" size="5" oninput="fun()" value="4"
@@ -262,18 +263,6 @@
   <table name="matrix2" id="matrix2"></table>
   <input type="submit" value="Вычислить" id="calc">
 </form>
-<table>
-  <tr>
-    <td><input type="text" maxlength="50" size="5" name="11" value="4"
-                 onkeyup="return check(this);" onchange="return check(this);"></td>
-  </tr>
-      <c:forEach var="i" begin = "1" end = "<%=request.getParameter("size11")%>">
-        <tr>
-          <td>${i}</td>
-        </tr>
-      </c:forEach>
-</table>
-<table></table>
 <div class="center">
   <input type="checkbox" id="cbx" style="display:none"/>
   <label for="cbx" class="toggle"><span></span></label>
