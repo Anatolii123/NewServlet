@@ -1,5 +1,3 @@
-<%@ page import="servlets.User" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   servlets.User: Анатолий
@@ -8,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="cd" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -155,6 +153,12 @@
       left: 0px;
     }
 
+    input[id=calc] {
+      position: absolute;
+      top: 610px;
+      left: 0px;
+    }
+
     input[name=size11] {
       padding: 15px;
       display: inline-block;
@@ -234,18 +238,18 @@
     <tr>
       <td><b>Матрица 1: </b></td>
       <td><input type="text" name="size11" id="sz11" size="5" oninput="fun()" value="4"
-                 onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
+                 onkeyup="return check(this);" onchange="return check(this);"></td>
       <td align="center"><b>x</b></td>
       <td><input type="text" name="size12" id="sz12" size="5" oninput="fun()" value="4"
-                 onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
+                 onkeyup="return check(this);" onchange="return check(this);"></td>
     </tr>
     <tr>
       <td><b>Матрица 2:</b></td>
       <td><input type="text" name="size21" id="sz21" size="5" oninput="fun2()" value="4"
-                 onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
+                 onkeyup="return check(this);" onchange="return check(this);"></td>
       <td align="center"><b>x</b></td>
       <td><input type="text" name="size22" id="sz22" size="5" oninput="fun2()" value="4"
-                 onkeyup="return proverka(this);" onchange="return proverka(this);"></td>
+                 onkeyup="return check(this);" onchange="return check(this);"></td>
     </tr>
     <tr>
       <td><b>Операция: </b></td>
@@ -253,11 +257,23 @@
       <td><input name="Operation" type="radio" value="Sub">-</td>
       <td><input name="Operation" type="radio" value="Mult">*</td>
     </tr>
-    <tr>
-      <td><input type="submit" value="Вычислить"></td>
-    </tr>
   </table>
+  <table name="matrix1" id="matrix1"></table>
+  <table name="matrix2" id="matrix2"></table>
+  <input type="submit" value="Вычислить" id="calc">
 </form>
+<table>
+  <tr>
+    <td><input type="text" maxlength="50" size="5" name="11" value="4"
+                 onkeyup="return check(this);" onchange="return check(this);"></td>
+  </tr>
+      <c:forEach var="i" begin = "1" end = "<%=request.getParameter("size11")%>">
+        <tr>
+          <td>${i}</td>
+        </tr>
+      </c:forEach>
+</table>
+<table></table>
 <div class="center">
   <input type="checkbox" id="cbx" style="display:none"/>
   <label for="cbx" class="toggle"><span></span></label>

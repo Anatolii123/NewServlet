@@ -2,14 +2,14 @@ var s11 = document.getElementById('sz11');
 var s12 = document.getElementById('sz12');
 var s21 = document.getElementById('sz21');
 var s22 = document.getElementById('sz22');
-var firstMat = document.createElement('table');
-var secondMat = document.createElement('table');
+var firstMat = document.getElementById('matrix1');
+var secondMat = document.getElementById('matrix2');
 firstMat.style.top = '10%';
 firstMat.style.left = '35%';
 secondMat.style.top = '10%';
 secondMat.style.left = '75%';
 
-function proverka(input) {
+function check(input) {
     input.value = input.value.replace(/[^\d,]/g, '')
 };
 
@@ -20,21 +20,20 @@ function fun() {
     s12.style.width = s12.value.toString() != '' ? (s12.value.toString().length*14).toString() + 'px': '14px';
     s21.style.width = s11.style.width;
     s22.style.width = s12.style.width;
-    var mainrow = '<tr><td><input type="text" maxlength="50" size="5" name="name1" ' +
-        'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
-    print();
+    var mainrow = '<tr><td><input type="text" maxlength="50" size="5" name="11" value="4"' +
+        'onkeyup="return check(this);" onchange="return check(this);"></td>';
     for (var i = 1; i < sz12; i++) {
         mainrow += '<td><input type="text" maxlength="50" size="5" name="1' + (i+1).toString() +
-        '" onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
+        '" onkeyup="return check(this);" onchange="return check(this);"></td>';
     }
     mainrow += '</tr>';
     var tableHTML = mainrow;
     for (var i = 1; i < sz11; i++){
         row = '<tr><td><input type="text" maxlength="50" size="5" name="' + (i+1).toString() +
-        '1" onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
+        '1" onkeyup="return check(this);" onchange="return check(this);"></td>';
         for (var j = 1; j < sz12; j++) {
             row += '<td><input type="text" maxlength="50" size="5" name="' + (i+1).toString() + (j+1).toString() +
-        '" onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
+        '" onkeyup="return check(this);" onchange="return check(this);"></td>';
         }
         row += '</tr>';
         tableHTML += row;
@@ -54,6 +53,7 @@ function fun() {
     document.body.appendChild(firstMat);
 }
 fun();
+
 function fun2() {
     sz21 = s21.value;
     sz22 = s22.value;
@@ -62,19 +62,19 @@ function fun2() {
     s11.style.width = s21.style.width;
     s12.style.width = s22.style.width;
     var mainrow = '<tr><td><input type="text" maxlength="50" size="5" ' +
-        'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
+        'onkeyup="return check(this);" onchange="return check(this);"></td>';
     for (var i = 0; i < sz22-1; i++) {
         mainrow += '<td><input type="text" maxlength="50" size="5" ' +
-        'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
+        'onkeyup="return check(this);" onchange="return check(this);"></td>';
     }
     mainrow += '</tr>';
     var tableHTML = mainrow;
     for (var i = 0; i < sz21-1; i++){
         row2 = '<tr><td><input type="text" maxlength="50" size="5" ' +
-         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
+         'onkeyup="return check(this);" onchange="return check(this);"></td>';
         for (var j = 0; j < sz22-1; j++) {
             row2 += '<td><input type="text" maxlength="50" size="5" ' +
-         'onkeyup="return proverka(this);" onchange="return proverka(this);"></td>';
+         'onkeyup="return check(this);" onchange="return check(this);"></td>';
         }
         row2 += '</tr>';
         tableHTML += row2;
