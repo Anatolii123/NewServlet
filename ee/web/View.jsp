@@ -13,6 +13,7 @@
   <title>Обработка данных форм</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"
         http-equiv="Cache-Control" content="no-cache">
+<%--  <вынести стили в отдельный файл>--%>
   <style>
     body{
       background-color: white;
@@ -37,8 +38,8 @@
     table {
       border: white;
       position: absolute;
-      top: calc(50% - 325px);
-      left: calc(50% - 380px);
+      /*top: calc(50% - 325px);*/
+      /*left: calc(50% - 380px);*/
     }
 
     caption {
@@ -220,9 +221,10 @@
   <script async src="main.js"></script>
   </head>
 <body>
-<h4><%=request.getAttribute("CalcError") != null ? request.getAttribute("CalcError"):""%></h4>
+<h4><c:out value="${requestScope.CalcError ne null ? requestScope.CalcError : ''}"/></h4>
+<div style="display: grid">
 <form name="account" id="account" action="LogOut">
-  <h3><%=request.getAttribute("registration") != null ? request.getAttribute("registration"):""%></h3>
+  <h3><c:out value="${requestScope.registration ne null ? requestScope.registration : ''}"/></h3>
   <p>Имя: <c:out value="${requestScope.name eq '' ? 'не заполнено' : requestScope.name}"/></p>
   <p>Фамилия: <c:out value="${requestScope.surname eq '' ? 'не заполнено' : requestScope.surname}"/></p>
   <p>Email: <c:out value="${requestScope.email eq '' ? 'не заполнено' : requestScope.email}"/></p>
@@ -232,37 +234,56 @@
   <p>Комментарий: <c:out value="${requestScope.comments eq '' ? 'не заполнено' : requestScope.comments}"/></p>
   <input type="submit" value="Выйти" id="logout">
 </form>
+</div>
 <br><br><br>
+<div style="display: grid">
 <form name="mtx" id="mtx" action="MatrixCalc" method="post">
-  <table name="size">
-    <tr>
-      <td><b>Матрица 1: </b></td>
-      <td><input type="text" name="size11" id="sz11" size="5" oninput="fun()"
-                 value="4"
-                 onkeyup="return check(this);" onchange="return check(this);"></td>
-      <td align="center"><b>x</b></td>
-      <td><input type="text" name="size12" id="sz12" size="5" oninput="fun()" value="4"
-                 onkeyup="return check(this);" onchange="return check(this);"></td>
-    </tr>
-    <tr>
-      <td><b>Матрица 2:</b></td>
-      <td><input type="text" name="size21" id="sz21" size="5" oninput="fun2()" value="4"
-                 onkeyup="return check(this);" onchange="return check(this);"></td>
-      <td align="center"><b>x</b></td>
-      <td><input type="text" name="size22" id="sz22" size="5" oninput="fun2()" value="4"
-                 onkeyup="return check(this);" onchange="return check(this);"></td>
-    </tr>
-    <tr>
-      <td><b>Операция: </b></td>
-      <td><input name="Operation" type="radio"  value="Sum" checked>+</td>
-      <td><input name="Operation" type="radio" value="Sub">-</td>
-      <td><input name="Operation" type="radio" value="Mult">*</td>
-    </tr>
-  </table>
-  <table name="matrix1" id="matrix1"></table>
-  <table name="matrix2" id="matrix2"></table>
+  <div>
+    <table name="size">
+      <tr>
+        <td><b>Матрица 1: </b></td>
+        <td><input type="text" name="size11" id="sz11" size="5" oninput="fun()"
+                   value="4"
+                   onkeyup="return check(this);" onchange="return check(this);"></td>
+        <td align="center"><b>x</b></td>
+        <td><input type="text" name="size12" id="sz12" size="5" oninput="fun()" value="4"
+                   onkeyup="return check(this);" onchange="return check(this);"></td>
+      </tr>
+      <tr>
+        <td><b>Матрица 2:</b></td>
+        <td><input type="text" name="size21" id="sz21" size="5" oninput="fun2()" value="4"
+                   onkeyup="return check(this);" onchange="return check(this);"></td>
+        <td align="center"><b>x</b></td>
+        <td><input type="text" name="size22" id="sz22" size="5" oninput="fun2()" value="4"
+                   onkeyup="return check(this);" onchange="return check(this);"></td>
+      </tr>
+      <tr>
+        <td><b>Операция: </b></td>
+        <td><input name="Operation" type="radio" value="Sum" checked>+</td>
+        <td><input name="Operation" type="radio" value="Sub">-</td>
+        <td><input name="Operation" type="radio" value="Mult">*</td>
+      </tr>
+    </table>
+  </div>
+  <div style="display: table">
+    <div style="display: table-row">
+      <div style="display: table-cell"><table name="matrix1" id="matrix1" ></table></div>
+      <div style="display: table-cell"><table name="matrix2" id="matrix2" ></table></div>
+    </div>
+  </div>
   <input type="submit" value="Вычислить" id="calc">
 </form>
+</div>
+<table>
+
+<%--  <c:forEach var="i" begin = "1" end = "${}">--%>
+<%--    <tr>--%>
+<%--      <td><input type="text" maxlength="50" size="5" name="11"--%>
+<%--                 onkeyup="return check(this);" onchange="return check(this);"></td>--%>
+<%--    </tr>--%>
+<%--  </c:forEach>--%>
+</table>
+<table></table>
 <div class="center">
   <input type="checkbox" id="cbx" style="display:none"/>
   <label for="cbx" class="toggle"><span></span></label>

@@ -12,6 +12,11 @@ secondMat.style.left = '75%';
 function check(input) {
     input.value = input.value.replace(/[^\d,]/g, '')
 };
+function paste(element, row, column) {
+    left = 100 + 16*column;
+    top = 100 + 16*row;
+    document.body.innerHTML = '<p style=": ' + left + ' " style="top: ' + top + '">' + element.value() + '</p>';
+}
 
 function fun() {
     sz11 = s11.value;
@@ -39,6 +44,7 @@ function fun() {
         tableHTML += row;
     }
     firstMat.innerHTML = tableHTML;
+
     firstMat.createCaption().innerHTML = "<b>Матрица 1</b>";
     if (document.body.className == "Change"){
         firstMat.caption.style.color = "white";
@@ -50,7 +56,13 @@ function fun() {
             }
         }
     }
-    document.body.appendChild(firstMat);
+    // document.body.appendChild(firstMat);
+    for (var i = 0; i < firstMat.rows.length; i++) {
+        var table = firstMat.rows[i].cells;
+        for (var j = 0; j < table.length; j++) {
+            paste(table[j]);
+        }
+    }
 }
 fun();
 
@@ -80,6 +92,12 @@ function fun2() {
         tableHTML += row2;
     }
     secondMat.innerHTML = tableHTML;
+    for (var i = 0; i < secondMat.rows.length; i++) {
+        var table = secondMat.rows[i].cells;
+        for (var j = 0; j < table.length; j++) {
+            paste2(table[j]);
+        }
+    }
     var table = secondMat.createCaption().innerHTML = "<b>Матрица 2</b>";
     if (document.body.className == "Change"){
         secondMat.caption.style.color = "white";
