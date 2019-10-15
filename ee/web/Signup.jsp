@@ -29,23 +29,28 @@
         </tr>
         <tr>
             <td align="right">*Фамилия:</td>
-            <td><input type="text" name="TEXT_2" maxlength="50" size="20" value="<%=request.getAttribute("surname") != null ? request.getAttribute("surname"):""%>"></td>
+            <td><input type="text" name="TEXT_2" maxlength="50" size="20"
+                       value="<c:out value="${sessionScope.surname ne null ? sessionScope.surname : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Email:</td>
-            <td><input type="text" name="TEXT_3" maxlength="50" size="20" value="<%=request.getAttribute("email") != null ? request.getAttribute("email"):""%>"></td>
+            <td><input type="text" name="TEXT_3" maxlength="50" size="20"
+                       value="<c:out value="${sessionScope.email ne null ? sessionScope.email : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Пароль:</td>
-            <td><input type="text" name="TEXT_4" maxlength="50" size="20" value="<%=request.getAttribute("password") != null ? request.getAttribute("password"):""%>"></td>
+            <td><input type="text" name="TEXT_4" maxlength="50" size="20"
+                       value="<c:out value="${sessionScope.password ne null ? sessionScope.password : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Подтверждение пароля:</td>
-            <td><input type="text" name="TEXT_5" maxlength="50" size="20" value="<%=request.getAttribute("copypassword") != null ? request.getAttribute("copypassword"):""%>"></td>
+            <td><input type="text" name="TEXT_5" maxlength="50" size="20"
+                       value="<c:out value="${sessionScope.copypassword ne null ? sessionScope.copypassword : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Дата рождения:</td>
-            <td><input type="text" name="TEXT_6" maxlength="50" size="20" value="<%=request.getAttribute("dateOfBirth") != null ? request.getAttribute("dateOfBirth"):""%>"></td>
+            <td><input type="text" name="TEXT_6" maxlength="50" size="20"
+                       value="<c:out value="${sessionScope.dateOfBirth ne null ? sessionScope.dateOfBirth : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">Пол:</td>
