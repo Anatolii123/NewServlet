@@ -221,6 +221,7 @@
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   <script async src="main.js"></script>
+  <link rel="stylesheet" href="/assets/css/style.css">
   </head>
 <body>
 <h4><c:out value="${requestScope.CalcError ne null ? requestScope.CalcError : ''}"/></h4>
@@ -244,19 +245,19 @@
     <table name="size">
       <tr>
         <td><b>Матрица 1: </b></td>
-        <td><input type="text" name="size11" id="sz11" size="5" oninput="fun()"
+        <td><input type="text" name="size11" id="sz11" size="5" oninput="f(s11,s12,1,firstMat)"
                    value="4"
                    onkeyup="return check(this);" onchange="return check(this);"></td>
         <td align="center"><b>x</b></td>
-        <td><input type="text" name="size12" id="sz12" size="5" oninput="fun()" value="4"
+        <td><input type="text" name="size12" id="sz12" size="5" oninput="f(s11,s12,1,firstMat)" value="4"
                    onkeyup="return check(this);" onchange="return check(this);"></td>
       </tr>
       <tr>
         <td><b>Матрица 2:</b></td>
-        <td><input type="text" name="size21" id="sz21" size="5" oninput="fun2()" value="4"
+        <td><input type="text" name="size21" id="sz21" size="5" oninput="f(s21,s22,2,secondMat)" value="4"
                    onkeyup="return check(this);" onchange="return check(this);"></td>
         <td align="center"><b>x</b></td>
-        <td><input type="text" name="size22" id="sz22" size="5" oninput="fun2()" value="4"
+        <td><input type="text" name="size22" id="sz22" size="5" oninput="f(s21,s22,2,secondMat)" value="4"
                    onkeyup="return check(this);" onchange="return check(this);"></td>
       </tr>
       <tr>
