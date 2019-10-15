@@ -25,37 +25,37 @@
     <table width="200%" cellspacing="0" cellpadding="4">
         <tr>
             <td align="right" width="150">*Имя:</td>
-            <td><input type="text" name="TEXT_1" maxlength="50" size="20"
+            <td><input type="text" name="NAME" maxlength="50" size="20"
                        value="<c:out value="${sessionScope.name ne null ? sessionScope.name : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Фамилия:</td>
-            <td><input type="text" name="TEXT_2" maxlength="50" size="20"
+            <td><input type="text" name="SURNAME" maxlength="50" size="20"
                        value="<c:out value="${sessionScope.surname ne null ? sessionScope.surname : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Email:</td>
-            <td><input type="text" name="TEXT_3" maxlength="50" size="20"
+            <td><input type="text" name="EMAIL" maxlength="50" size="20"
                        value="<c:out value="${sessionScope.email ne null ? sessionScope.email : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Пароль:</td>
-            <td><input type="text" name="TEXT_4" maxlength="50" size="20"
+            <td><input type="text" name="PASSWORD" maxlength="50" size="20"
                        value="<c:out value="${sessionScope.password ne null ? sessionScope.password : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Подтверждение пароля:</td>
-            <td><input type="text" name="TEXT_5" maxlength="50" size="20"
+            <td><input type="text" name="COPY_PASSWORD" maxlength="50" size="20"
                        value="<c:out value="${sessionScope.copypassword ne null ? sessionScope.copypassword : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Дата рождения:</td>
-            <td><input type="text" name="TEXT_6" maxlength="50" size="20"
+            <td><input type="text" name="DATE_OF_BIRTH" maxlength="50" size="20"
                        value="<c:out value="${sessionScope.dateOfBirth ne null ? sessionScope.dateOfBirth : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">Пол:</td>
-            <td><select type="select" name="TEXT_7" rows="1">
+            <td><select type="select" name="GENDER" rows="1">
                 <option>мужской</option>
                 <option>женский</option>
                 <option>не определилось</option>
@@ -65,14 +65,14 @@
         <tr>
             <td align="right">Хотите поговорить о баге?</td>
             <td>
-                <input name="TEXT_8" type="radio" value="Аминь"> Аминь
-                <input name="TEXT_8" type="radio" value="Алюминь"> Алюминь
-                <input name="TEXT_8" type="radio" value="Нет" checked> Нет
+                <input name="BUG" type="radio" value="Аминь"> Аминь
+                <input name="BUG" type="radio" value="Алюминь"> Алюминь
+                <input name="BUG" type="radio" value="Нет" checked> Нет
             </td>
         </tr>
         <tr>
             <td align="right" valign="top">Комментарий</td>
-            <td><textarea name="TEXT_9" cols="49" rows="10"></textarea></td>
+            <td><textarea name="COMMENTS" cols="49" rows="10"></textarea></td>
         </tr>
     </table>
     <p>* - поля, обязательные для заполнения</p>

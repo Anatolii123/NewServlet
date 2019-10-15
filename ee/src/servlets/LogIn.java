@@ -20,27 +20,27 @@ public class LogIn extends HttpServlet {
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
             Statement statement = connection.createStatement();
             if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
-                    "'" + request.getParameter("TEXT_3") + "'" +
+                    "'" + request.getParameter("EMAIL") + "'" +
                     "").next() &&
                 statement.executeQuery("SELECT * FROM PEOPLE WHERE PASSWORD = " +
-                    "'" + request.getParameter("TEXT_4") + "'" +
+                    "'" + request.getParameter("PASSWORD") + "'" +
                     "").next()) {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Controller");
                 requestDispatcher.forward(request,response);
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
-                    "'" + request.getParameter("TEXT_3") + "'" +
-                    "").next() && request.getParameter("TEXT_4").equals("")) {
-                request.getSession().setAttribute("email",request.getParameter("TEXT_3"));
+                    "'" + request.getParameter("EMAIL") + "'" +
+                    "").next() && request.getParameter("PASSWORD").equals("")) {
+                request.getSession().setAttribute("email",request.getParameter("EMAIL"));
                 request.getSession().setAttribute("loginError","Введите пароль.");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signin.jsp");
                 requestDispatcher.forward(request,response);
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
-                    "'" + request.getParameter("TEXT_3") + "'" +
+                    "'" + request.getParameter("EMAIL") + "'" +
                     "").next() &&
                     !statement.executeQuery("SELECT * FROM PEOPLE WHERE PASSWORD = " +
-                            "'" + request.getParameter("TEXT_4") + "'" +
+                            "'" + request.getParameter("PASSWORD") + "'" +
                             "").next()) {
-                request.getSession().setAttribute("email",request.getParameter("TEXT_3"));
+                request.getSession().setAttribute("email",request.getParameter("EMAIL"));
                 request.getSession().setAttribute("loginError","Пароль введён неверно! Попробуйте ещё раз.");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signin.jsp");
                 requestDispatcher.forward(request,response);

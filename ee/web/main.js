@@ -1,7 +1,7 @@
-var s11 = document.getElementById('sz11');
-var s12 = document.getElementById('sz12');
-var s21 = document.getElementById('sz21');
-var s22 = document.getElementById('sz22');
+var s11 = document.getElementById('m1r');
+var s12 = document.getElementById('m1c');
+var s21 = document.getElementById('m2r');
+var s22 = document.getElementById('m2c');
 var firstMat = document.getElementById('matrix1');
 var secondMat = document.getElementById('matrix2');
 firstMat.style.top = '10%';

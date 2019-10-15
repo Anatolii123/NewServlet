@@ -28,8 +28,8 @@ public class Controller extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         req.setCharacterEncoding("utf-8");
         String path = req.getRequestURI().substring(req.getContextPath().length());
-        String login = req.getParameter("TEXT_3");
-        String password = req.getParameter("TEXT_4");
+        String login = req.getParameter("EMAIL");
+        String password = req.getParameter("PASSWORD");
 
         String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.151:1521:gmudb";
         User user = new User();

@@ -16,15 +16,15 @@ import java.sql.Statement;
 public class AddToDB extends HttpServlet {
 
     public static void setRequestAttributesFromForm(HttpServletRequest request) {
-        request.getSession().setAttribute("name", request.getParameter("TEXT_1"));
-        request.getSession().setAttribute("surname", request.getParameter("TEXT_2"));
-        request.getSession().setAttribute("email", request.getParameter("TEXT_3"));
-        request.getSession().setAttribute("password", request.getParameter("TEXT_4"));
-        request.getSession().setAttribute("copypassword", request.getParameter("TEXT_5"));
-        request.getSession().setAttribute("dateOfBirth", request.getParameter("TEXT_6"));
-        request.getSession().setAttribute("gender", request.getParameter("TEXT_7"));
-        request.getSession().setAttribute("bug", request.getParameter("TEXT_8"));
-        request.getSession().setAttribute("comments", (request.getParameter("TEXT_9") == "")? "не задано":request.getParameter("TEXT_9"));
+        request.getSession().setAttribute("name", request.getParameter("NAME"));
+        request.getSession().setAttribute("surname", request.getParameter("SURNAME"));
+        request.getSession().setAttribute("email", request.getParameter("EMAIL"));
+        request.getSession().setAttribute("password", request.getParameter("PASSWORD"));
+        request.getSession().setAttribute("copypassword", request.getParameter("COPY_PASSWORD"));
+        request.getSession().setAttribute("dateOfBirth", request.getParameter("DATE_OF_BIRTH"));
+        request.getSession().setAttribute("gender", request.getParameter("GENDER"));
+        request.getSession().setAttribute("bug", request.getParameter("BUG"));
+        request.getSession().setAttribute("comments", (request.getParameter("COMMENTS") == "")? "не задано":request.getParameter("COMMENTS"));
     }
 
     @Override
@@ -37,54 +37,54 @@ public class AddToDB extends HttpServlet {
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
             Statement statement = connection.createStatement();
             setRequestAttributesFromForm(request);
-            if (request.getParameter("TEXT_1").equals("") ||
-                request.getParameter("TEXT_2").equals("") ||
-                request.getParameter("TEXT_3").equals("") ||
-                request.getParameter("TEXT_4").equals("") ||
-                request.getParameter("TEXT_5").equals("") ||
-                request.getParameter("TEXT_6").equals("")) {
+            if (request.getParameter("NAME").equals("") ||
+                request.getParameter("SURNAME").equals("") ||
+                request.getParameter("EMAIL").equals("") ||
+                request.getParameter("PASSWORD").equals("") ||
+                request.getParameter("COPY_PASSWORD").equals("") ||
+                request.getParameter("DATE_OF_BIRTH").equals("")) {
                 request.setAttribute("Error","Не все поля заполнены! Заполните пустые поля.");
                 request.getSession().setAttribute("Error","Не все поля заполнены! Заполните пустые поля.");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signup.jsp");
                 requestDispatcher.forward(request,response);
-            } else if (!request.getParameter("TEXT_4").equals(request.getParameter("TEXT_5"))) {
+            } else if (!request.getParameter("PASSWORD").equals(request.getParameter("COPY_PASSWORD"))) {
                 request.getSession().setAttribute("Error","Копия пароля введена неверно! Попробуйте ещё раз.");
                 request.getSession().setAttribute("password","");
                 request.getSession().setAttribute("copypassword","");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signup.jsp");
                 requestDispatcher.forward(request,response);
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
-                    "'" + request.getParameter("TEXT_3") + "'" +
+                    "'" + request.getParameter("EMAIL") + "'" +
                     "").next() &&
                     !statement.executeQuery("SELECT * FROM PEOPLE WHERE PASSWORD = " +
-                            "'" + request.getParameter("TEXT_4") + "'" +
+                            "'" + request.getParameter("PASSWORD") + "'" +
                             "").next()) {
                 request.getSession().setAttribute("Error","Пользователь с таким аккаунтом уже существует! Попробуйте ещё раз.");
                 request.getSession().setAttribute("email","");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signup.jsp");
                 requestDispatcher.forward(request,response);
             } else if(statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
-                    "'" + request.getParameter("TEXT_3") + "'" +
+                    "'" + request.getParameter("EMAIL") + "'" +
                     "").next() &&
                     statement.executeQuery("SELECT * FROM PEOPLE WHERE PASSWORD = " +
-                            "'" + request.getParameter("TEXT_4") + "'" +
+                            "'" + request.getParameter("PASSWORD") + "'" +
                             "").next()) {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Controller");
                 requestDispatcher.forward(request,response);
-            } else if (request.getParameter("TEXT_4").equals(request.getParameter("TEXT_5")) &&
+            } else if (request.getParameter("PASSWORD").equals(request.getParameter("COPY_PASSWORD")) &&
                     !statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
-                            "'" + request.getParameter("TEXT_3") + "'" +
+                            "'" + request.getParameter("EMAIL") + "'" +
                             "").next()) {
                 statement.executeUpdate("INSERT INTO PEOPLE VALUES (" +
                         "PEOPLE_ID_SEQUENCE.NEXTVAL, " +
-                        "'" + request.getParameter("TEXT_1") +"', " +
-                        "'" + request.getParameter("TEXT_2") +"', " +
-                        "'" + request.getParameter("TEXT_3") +"', " +
-                        "'" + request.getParameter("TEXT_4") +"', " +
-                        "'" + request.getParameter("TEXT_6") +"', " +
-                        "'" + request.getParameter("TEXT_7") +"', " +
-                        "'" + request.getParameter("TEXT_8") +"', " +
-                        "'" + request.getParameter("TEXT_9") +"')");
+                        "'" + request.getParameter("NAME") +"', " +
+                        "'" + request.getParameter("SURNAME") +"', " +
+                        "'" + request.getParameter("EMAIL") +"', " +
+                        "'" + request.getParameter("PASSWORD") +"', " +
+                        "'" + request.getParameter("DATE_OF_BIRTH") +"', " +
+                        "'" + request.getParameter("GENDER") +"', " +
+                        "'" + request.getParameter("BUG") +"', " +
+                        "'" + request.getParameter("COMMENTS") +"')");
                 request.getSession().setAttribute("registration","Вы успешно зарегистрированы!");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Controller");
                 requestDispatcher.forward(request,response);

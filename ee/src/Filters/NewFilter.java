@@ -19,8 +19,8 @@ public class NewFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String path = req.getRequestURI().substring(req.getContextPath().length());
-        String login = req.getParameter("TEXT_3");
-        String password = req.getParameter("TEXT_4");
+        String login = req.getParameter("EMAIL");
+        String password = req.getParameter("PASSWORD");
         String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.151:1521:gmudb";
 
         try {
@@ -43,8 +43,8 @@ public class NewFilter implements Filter {
                 filterChain.doFilter(req,resp);
             } else if (path.startsWith("/LogIn")) {
                 PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PEOPLE WHERE EMAIL = ? AND PASSWORD = ?");
-                preparedStatement.setString(1, req.getParameter("TEXT_3"));
-                preparedStatement.setString(2, req.getParameter("TEXT_4"));
+                preparedStatement.setString(1, req.getParameter("EMAIL"));
+                preparedStatement.setString(2, req.getParameter("PASSWORD"));
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (resultSet.next()) {
                     Controller.setRequestAttributesFromDB(req,resultSet);
