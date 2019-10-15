@@ -18,6 +18,9 @@ public class MatrixCalc extends HttpServlet {
             request.setAttribute("CalcError","Матрицы разных размерностей. " +
                     "Размерность первой матрицы - " + request.getParameter("size11") + "x" + request.getParameter("size12") + ". " +
                     "Размерность второй матрицы - " + request.getParameter("size21") + "x" + request.getParameter("size22") + ".");
+            request.getSession().setAttribute("CalcError","Матрицы разных размерностей. " +
+                    "Размерность первой матрицы - " + request.getParameter("size11") + "x" + request.getParameter("size12") + ". " +
+                    "Размерность второй матрицы - " + request.getParameter("size21") + "x" + request.getParameter("size22") + ".");
             Controller.setRequestAttributes(request);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(request,response);
@@ -27,11 +30,15 @@ public class MatrixCalc extends HttpServlet {
             request.setAttribute("CalcError","Матрицы несогласованы: число столбцов первой матрицы - " +
                     request.getParameter("size12") + ". " +
                     "Число строк второй матрицы - " + request.getParameter("size21") + ".");
+            request.getSession().setAttribute("CalcError","Матрицы несогласованы: число столбцов первой матрицы - " +
+                    request.getParameter("size12") + ". " +
+                    "Число строк второй матрицы - " + request.getParameter("size21") + ".");
             Controller.setRequestAttributes(request);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(request,response);
         }
         request.setAttribute("CalcError",request.getParameter("11") + " " + request.getParameter("12"));
+        request.getSession().setAttribute("CalcError",request.getParameter("11") + " " + request.getParameter("12"));
         System.out.println(request.getParameter("matrix1"));
         Controller.setRequestAttributes(request);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");

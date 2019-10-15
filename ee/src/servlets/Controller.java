@@ -49,7 +49,6 @@ public class Controller extends HttpServlet {
                 req.getSession().setAttribute("gender", resultSet.getString("GENDER"));
                 req.getSession().setAttribute("bug", resultSet.getString("BUG"));
                 req.getSession().setAttribute("comments", (resultSet.getString("COMMENTS") == null)? "не задано":resultSet.getString("COMMENTS"));
-               setRequestAttributes(req);
             }
             connection.close();
         } catch (Exception e) {

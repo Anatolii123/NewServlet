@@ -19,17 +19,17 @@
   <script async src="main.js"></script>
   </head>
 <body>
-<h4><c:out value="${requestScope.CalcError ne null ? requestScope.CalcError : ''}"/></h4>
+<h4><c:out value="${sessionScope.CalcError ne null ? sessionScope.CalcError : ''}"/></h4>
 <div style="display: grid">
   <form name="account" id="account" action="LogOut">
-    <h3><c:out value="${requestScope.registration ne null ? requestScope.registration : ''}"/></h3>
-    <p>Имя: <c:out value="${requestScope.name eq '' ? 'не заполнено' : requestScope.name}"/></p>
-    <p>Фамилия: <c:out value="${requestScope.surname eq '' ? 'не заполнено' : requestScope.surname}"/></p>
-    <p>Email: <c:out value="${requestScope.email eq '' ? 'не заполнено' : requestScope.email}"/></p>
-    <p>Дата рождения: <c:out value="${requestScope.dateOfBirth eq '' ? 'не заполнено' : requestScope.dateOfBirth}"/></p>
-    <p>Пол: <c:out value="${requestScope.gender eq '' ? 'не заполнено' : requestScope.gender}"/></p>
-    <p >О баге: <c:out value="${requestScope.bug eq '' ? 'не заполнено' : requestScope.bug}"/></p>
-    <p>Комментарий: <c:out value="${requestScope.comments eq '' ? 'не заполнено' : requestScope.comments}"/></p>
+    <h3><c:out value="${sessionScope.registration ne null ? sessionScope.registration : ''}"/></h3>
+    <p>Имя: <c:out value="${sessionScope.name eq '' ? 'не заполнено' : sessionScope.name}"/></p>
+    <p>Фамилия: <c:out value="${sessionScope.surname eq '' ? 'не заполнено' : sessionScope.surname}"/></p>
+    <p>Email: <c:out value="${sessionScope.email eq '' ? 'не заполнено' : sessionScope.email}"/></p>
+    <p>Дата рождения: <c:out value="${sessionScope.dateOfBirth eq '' ? 'не заполнено' : sessionScope.dateOfBirth}"/></p>
+    <p>Пол: <c:out value="${sessionScope.gender eq '' ? 'не заполнено' : sessionScope.gender}"/></p>
+    <p >О баге: <c:out value="${sessionScope.bug eq '' ? 'не заполнено' : sessionScope.bug}"/></p>
+    <p>Комментарий: <c:out value="${sessionScope.comments eq '' ? 'не заполнено' : sessionScope.comments}"/></p>
     <input type="submit" value="Выйти" id="logout">
   </form>
 </div>

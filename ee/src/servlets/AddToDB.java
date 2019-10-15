@@ -80,6 +80,7 @@ public class AddToDB extends HttpServlet {
                         "'" + request.getParameter("TEXT_8") +"', " +
                         "'" + request.getParameter("TEXT_9") +"')");
                 request.setAttribute("registration","Вы успешно зарегистрированы!");
+                request.getSession().setAttribute("registration","Вы успешно зарегистрированы!");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Controller");
                 requestDispatcher.forward(request,response);
             }
