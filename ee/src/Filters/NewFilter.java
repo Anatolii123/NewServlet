@@ -5,9 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
 
 
 public class NewFilter implements Filter {
@@ -51,6 +49,25 @@ public class NewFilter implements Filter {
                 req.getSession().setAttribute("comments", (req.getParameter("TEXT_9") == "")? "не задано":req.getParameter("TEXT_9"));
                 Controller.setRequestAttributes(req);
                 filterChain.doFilter(req,resp);
+            } else if (path.startsWith("/LogIn")) {
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PEOPLE WHERE EMAIL = ? AND PASSWORD = ?");
+                preparedStatement.setString(1, req.getParameter("TEXT_3"));
+                preparedStatement.setString(2, req.getParameter("TEXT_4"));
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    req.getSession().setAttribute("name", req.getParameter("TEXT_1"));
+                    req.getSession().setAttribute("surname", req.getParameter("TEXT_2"));
+                    req.getSession().setAttribute("email", req.getParameter("TEXT_3"));
+                    req.getSession().setAttribute("password", req.getParameter("TEXT_4"));
+                    req.getSession().setAttribute("dateOfBirth", req.getParameter("TEXT_6"));
+                    req.getSession().setAttribute("gender", req.getParameter("TEXT_7"));
+                    req.getSession().setAttribute("bug", req.getParameter("TEXT_8"));
+                    req.getSession().setAttribute("comments", (req.getParameter("TEXT_9") == "")? "не задано":req.getParameter("TEXT_9"));
+                    Controller.setRequestAttributes(req);
+                    filterChain.doFilter(req,resp);
+                }
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Signup.jsp");
+                requestDispatcher.forward(req,resp);
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
                     "'" + login +"'" +
                     " AND PASSWORD = " +

@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
 
 @WebServlet("/LogIn")
 public class LogIn extends HttpServlet {
@@ -17,6 +15,7 @@ public class LogIn extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         request.setCharacterEncoding("utf-8");
         String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.151:1521:gmudb";
+        User user = new User();
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");

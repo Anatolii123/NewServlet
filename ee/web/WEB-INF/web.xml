@@ -18,6 +18,10 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>MyFilter</filter-name>
+        <url-pattern>/LogIn</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>MyFilter</filter-name>
         <url-pattern>/LogOut</url-pattern>
     </filter-mapping>
     <filter-mapping>
