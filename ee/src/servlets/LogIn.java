@@ -15,7 +15,6 @@ public class LogIn extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         request.setCharacterEncoding("utf-8");
         String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.151:1521:gmudb";
-        User user = new User();
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
@@ -31,8 +30,8 @@ public class LogIn extends HttpServlet {
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
                     "'" + request.getParameter("TEXT_3") + "'" +
                     "").next() && request.getParameter("TEXT_4").equals("")) {
-                request.setAttribute("email",request.getParameter("TEXT_3"));
-                request.setAttribute("loginError","Введите пароль.");
+                request.getSession().setAttribute("email",request.getParameter("TEXT_3"));
+                request.getSession().setAttribute("loginError","Введите пароль.");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signin.jsp");
                 requestDispatcher.forward(request,response);
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
@@ -41,8 +40,8 @@ public class LogIn extends HttpServlet {
                     !statement.executeQuery("SELECT * FROM PEOPLE WHERE PASSWORD = " +
                             "'" + request.getParameter("TEXT_4") + "'" +
                             "").next()) {
-                request.setAttribute("email",request.getParameter("TEXT_3"));
-                request.setAttribute("loginError","Пароль введён неверно! Попробуйте ещё раз.");
+                request.getSession().setAttribute("email",request.getParameter("TEXT_3"));
+                request.getSession().setAttribute("loginError","Пароль введён неверно! Попробуйте ещё раз.");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signin.jsp");
                 requestDispatcher.forward(request,response);
             }

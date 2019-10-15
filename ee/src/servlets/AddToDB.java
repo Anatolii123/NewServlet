@@ -9,10 +9,23 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 @WebServlet("/AddToDB")
 public class AddToDB extends HttpServlet {
+
+    public static void setRequestAttributesFromForm(HttpServletRequest request) {
+        request.getSession().setAttribute("name", request.getParameter("TEXT_1"));
+        request.getSession().setAttribute("surname", request.getParameter("TEXT_2"));
+        request.getSession().setAttribute("email", request.getParameter("TEXT_3"));
+        request.getSession().setAttribute("password", request.getParameter("TEXT_4"));
+        request.getSession().setAttribute("copypassword", request.getParameter("TEXT_5"));
+        request.getSession().setAttribute("dateOfBirth", request.getParameter("TEXT_6"));
+        request.getSession().setAttribute("gender", request.getParameter("TEXT_7"));
+        request.getSession().setAttribute("bug", request.getParameter("TEXT_8"));
+        request.getSession().setAttribute("comments", (request.getParameter("TEXT_9") == "")? "не задано":request.getParameter("TEXT_9"));
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,15 +36,7 @@ public class AddToDB extends HttpServlet {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection connection = DriverManager.getConnection(DATABASE_URL, "INTERNSHIP", "internship");
             Statement statement = connection.createStatement();
-            request.setAttribute("name", request.getParameter("TEXT_1"));
-            request.setAttribute("surname", request.getParameter("TEXT_2"));
-            request.setAttribute("email", request.getParameter("TEXT_3"));
-            request.setAttribute("password", request.getParameter("TEXT_4"));
-            request.setAttribute("copypassword", request.getParameter("TEXT_5"));
-            request.setAttribute("dateOfBirth", request.getParameter("TEXT_6"));
-            request.setAttribute("gender", request.getParameter("TEXT_7"));
-            request.setAttribute("bug", request.getParameter("TEXT_8"));
-            request.setAttribute("comments", (request.getParameter("TEXT_9") == "")? "не задано":request.getParameter("TEXT_9"));
+            setRequestAttributesFromForm(request);
             if (request.getParameter("TEXT_1").equals("") ||
                 request.getParameter("TEXT_2").equals("") ||
                 request.getParameter("TEXT_3").equals("") ||
@@ -43,10 +48,7 @@ public class AddToDB extends HttpServlet {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signup.jsp");
                 requestDispatcher.forward(request,response);
             } else if (!request.getParameter("TEXT_4").equals(request.getParameter("TEXT_5"))) {
-                request.setAttribute("Error","Копия пароля введена неверно! Попробуйте ещё раз.");
                 request.getSession().setAttribute("Error","Копия пароля введена неверно! Попробуйте ещё раз.");
-                request.setAttribute("password","");
-                request.setAttribute("copypassword","");
                 request.getSession().setAttribute("password","");
                 request.getSession().setAttribute("copypassword","");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signup.jsp");
@@ -57,8 +59,6 @@ public class AddToDB extends HttpServlet {
                     !statement.executeQuery("SELECT * FROM PEOPLE WHERE PASSWORD = " +
                             "'" + request.getParameter("TEXT_4") + "'" +
                             "").next()) {
-                request.setAttribute("Error","Пользователь с таким аккаунтом уже существует! Попробуйте ещё раз.");
-                request.setAttribute("email","");
                 request.getSession().setAttribute("Error","Пользователь с таким аккаунтом уже существует! Попробуйте ещё раз.");
                 request.getSession().setAttribute("email","");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signup.jsp");
@@ -85,7 +85,6 @@ public class AddToDB extends HttpServlet {
                         "'" + request.getParameter("TEXT_7") +"', " +
                         "'" + request.getParameter("TEXT_8") +"', " +
                         "'" + request.getParameter("TEXT_9") +"')");
-                request.setAttribute("registration","Вы успешно зарегистрированы!");
                 request.getSession().setAttribute("registration","Вы успешно зарегистрированы!");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Controller");
                 requestDispatcher.forward(request,response);

@@ -12,14 +12,15 @@ import java.sql.*;
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 
-    public static void setRequestAttributes (HttpServletRequest req) {
-        req.setAttribute("name", req.getSession().getAttribute("name"));
-        req.setAttribute("surname", req.getSession().getAttribute("surname"));
-        req.setAttribute("email", req.getSession().getAttribute("email"));
-        req.setAttribute("dateOfBirth", req.getSession().getAttribute("dateOfBirth"));
-        req.setAttribute("gender", req.getSession().getAttribute("gender"));
-        req.setAttribute("bug", req.getSession().getAttribute("bug"));
-        req.setAttribute("comments", (req.getSession().getAttribute("comments") == null)? "не задано":req.getSession().getAttribute("comments"));
+    public static void setRequestAttributesFromDB (HttpServletRequest req, ResultSet resultSet) throws SQLException {
+        req.getSession().setAttribute("name", resultSet.getString("NAME"));
+        req.getSession().setAttribute("surname", resultSet.getString("SURNAME"));
+        req.getSession().setAttribute("email", resultSet.getString("EMAIL"));
+        req.getSession().setAttribute("password", resultSet.getString("PASSWORD"));
+        req.getSession().setAttribute("dateOfBirth", resultSet.getString("DATE_OF_BIRTH"));
+        req.getSession().setAttribute("gender", resultSet.getString("GENDER"));
+        req.getSession().setAttribute("bug", resultSet.getString("BUG"));
+        req.getSession().setAttribute("comments", (resultSet.getString("COMMENTS") == null)? "не задано":resultSet.getString("COMMENTS"));
     }
 
     @Override
@@ -41,14 +42,7 @@ public class Controller extends HttpServlet {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 req.getSession().setAttribute("user",user);
-                req.getSession().setAttribute("name", resultSet.getString("NAME"));
-                req.getSession().setAttribute("surname", resultSet.getString("SURNAME"));
-                req.getSession().setAttribute("email", resultSet.getString("EMAIL"));
-                req.getSession().setAttribute("password", resultSet.getString("PASSWORD"));
-                req.getSession().setAttribute("dateOfBirth", resultSet.getString("DATE_OF_BIRTH"));
-                req.getSession().setAttribute("gender", resultSet.getString("GENDER"));
-                req.getSession().setAttribute("bug", resultSet.getString("BUG"));
-                req.getSession().setAttribute("comments", (resultSet.getString("COMMENTS") == null)? "не задано":resultSet.getString("COMMENTS"));
+                setRequestAttributesFromDB(req,resultSet);
             }
             connection.close();
         } catch (Exception e) {
