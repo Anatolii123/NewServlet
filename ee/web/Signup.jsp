@@ -8,6 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +19,13 @@
 </head>
 <body>
 <h3>Вы не зарегистрированы! Введите данные для регистрации.</h3>
-<h4><%=request.getAttribute("Error") != null ? request.getAttribute("Error"):""%></h4>
+<h4><c:out value="${sessionScope.Error ne null ? sessionScope.Error : ''}"/></h4>
 <form action="AddToDB" method="post">
     <table width="200%" cellspacing="0" cellpadding="4">
         <tr>
             <td align="right" width="150">*Имя:</td>
-            <td><input type="text" name="TEXT_1" maxlength="50" size="20" value="<%=request.getAttribute("name") != null ? request.getAttribute("name"):""%>"></td>
+            <td><input type="text" name="TEXT_1" maxlength="50" size="20"
+                       value="<c:out value="${sessionScope.name ne null ? sessionScope.name : ''}"/>"></td>
         </tr>
         <tr>
             <td align="right">*Фамилия:</td>

@@ -55,14 +55,14 @@ public class NewFilter implements Filter {
                 preparedStatement.setString(2, req.getParameter("TEXT_4"));
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (resultSet.next()) {
-                    req.getSession().setAttribute("name", req.getParameter("TEXT_1"));
-                    req.getSession().setAttribute("surname", req.getParameter("TEXT_2"));
-                    req.getSession().setAttribute("email", req.getParameter("TEXT_3"));
-                    req.getSession().setAttribute("password", req.getParameter("TEXT_4"));
-                    req.getSession().setAttribute("dateOfBirth", req.getParameter("TEXT_6"));
-                    req.getSession().setAttribute("gender", req.getParameter("TEXT_7"));
-                    req.getSession().setAttribute("bug", req.getParameter("TEXT_8"));
-                    req.getSession().setAttribute("comments", (req.getParameter("TEXT_9") == "")? "не задано":req.getParameter("TEXT_9"));
+                    req.getSession().setAttribute("name", resultSet.getString("NAME"));
+                    req.getSession().setAttribute("surname", resultSet.getString("SURNAME"));
+                    req.getSession().setAttribute("email", resultSet.getString("EMAIL"));
+                    req.getSession().setAttribute("password", resultSet.getString("PASSWORD"));
+                    req.getSession().setAttribute("dateOfBirth", resultSet.getString("DATE_OF_BIRTH"));
+                    req.getSession().setAttribute("gender", resultSet.getString("GENDER"));
+                    req.getSession().setAttribute("bug", resultSet.getString("BUG"));
+                    req.getSession().setAttribute("comments", (resultSet.getString("COMMENTS") == null)? "не задано":resultSet.getString("COMMENTS"));
                     filterChain.doFilter(req,resp);
                 }
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Signup.jsp");

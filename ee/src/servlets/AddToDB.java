@@ -39,12 +39,16 @@ public class AddToDB extends HttpServlet {
                 request.getParameter("TEXT_5").equals("") ||
                 request.getParameter("TEXT_6").equals("")) {
                 request.setAttribute("Error","Не все поля заполнены! Заполните пустые поля.");
+                request.getSession().setAttribute("Error","Не все поля заполнены! Заполните пустые поля.");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signup.jsp");
                 requestDispatcher.forward(request,response);
             } else if (!request.getParameter("TEXT_4").equals(request.getParameter("TEXT_5"))) {
                 request.setAttribute("Error","Копия пароля введена неверно! Попробуйте ещё раз.");
+                request.getSession().setAttribute("Error","Копия пароля введена неверно! Попробуйте ещё раз.");
                 request.setAttribute("password","");
                 request.setAttribute("copypassword","");
+                request.getSession().setAttribute("password","");
+                request.getSession().setAttribute("copypassword","");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signup.jsp");
                 requestDispatcher.forward(request,response);
             } else if (statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
@@ -55,6 +59,8 @@ public class AddToDB extends HttpServlet {
                             "").next()) {
                 request.setAttribute("Error","Пользователь с таким аккаунтом уже существует! Попробуйте ещё раз.");
                 request.setAttribute("email","");
+                request.getSession().setAttribute("Error","Пользователь с таким аккаунтом уже существует! Попробуйте ещё раз.");
+                request.getSession().setAttribute("email","");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Signup.jsp");
                 requestDispatcher.forward(request,response);
             } else if(statement.executeQuery("SELECT * FROM PEOPLE WHERE EMAIL = " +
