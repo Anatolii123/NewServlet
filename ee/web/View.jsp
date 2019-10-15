@@ -18,9 +18,9 @@
   <script async src="main.js"></script>
   </head>
 <body>
-<h4><c:out value="${sessionScope.CalcError ne null ? sessionScope.CalcError : ''}"/></h4>
 <div style="display: grid">
   <form name="account" id="account" action="LogOut">
+    <h4><c:out value="${sessionScope.CalcError ne null ? sessionScope.CalcError : ''}"/></h4>
     <h3><c:out value="${sessionScope.registration ne null ? sessionScope.registration : ''}"/></h3>
     <p>Имя: <c:out value="${sessionScope.name eq '' ? 'не заполнено' : sessionScope.name}"/></p>
     <p>Фамилия: <c:out value="${sessionScope.surname eq '' ? 'не заполнено' : sessionScope.surname}"/></p>
@@ -39,8 +39,7 @@
       <table name="size">
         <tr>
           <td><b>Матрица 1: </b></td>
-          <td><input type="text" name="size11" id="sz11" size="5" oninput="buildMatrix(s11,s12,1,firstMat)"
-                     value="4"
+          <td><input type="text" name="size11" id="sz11" size="5" oninput="buildMatrix(s11,s12,1,firstMat)" value="4"
                      onkeyup="return check(this);" onchange="return check(this);"></td>
           <td align="center"><b>x</b></td>
           <td><input type="text" name="size12" id="sz12" size="5" oninput="buildMatrix(s11,s12,1,firstMat)" value="4"
@@ -61,12 +60,8 @@
           <td><input name="Operation" type="radio" value="Mult">*</td>
         </tr>
       </table>
-    </div>
-    <div style="display: table">
-      <div style="display: table-row">
-        <div style="display: table-cell"><table name="matrix1" id="matrix1" ></table></div>
-        <div style="display: table-cell"><table name="matrix2" id="matrix2" ></table></div>
-      </div>
+      <table name="matrix1" id="matrix1"></table>
+      <table name="matrix2" id="matrix2"></table>
     </div>
     <input type="submit" value="Вычислить" id="calc">
   </form>
@@ -75,6 +70,5 @@
   <input type="checkbox" id="cbx" style="display:none"/>
   <label for="cbx" class="toggle"><span></span></label>
 </div>
-</form>
 </body>
 </html>

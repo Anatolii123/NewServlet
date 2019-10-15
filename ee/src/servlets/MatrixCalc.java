@@ -29,7 +29,7 @@ public class MatrixCalc extends HttpServlet {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(request,response);
         }
-        request.getSession().setAttribute("CalcError",request.getParameter("11") + " " + request.getParameter("12"));
+        request.getSession().setAttribute("CalcError",request.getParameter("111") + " " + request.getParameter("112"));
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
         requestDispatcher.forward(request,response);
     }
@@ -37,7 +37,5 @@ public class MatrixCalc extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req,resp);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/View.jsp");
-        requestDispatcher.forward(req,resp);
     }
 }

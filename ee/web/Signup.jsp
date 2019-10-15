@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"
           http-equiv="Cache-Control" content="no-cache">
     <style> @import "assets/css/SignupStyle.css"; </style>
+<%--todo: 1. переименовать TEXT_1 и тд--%>
 </head>
 <body>
 <h3>Вы не зарегистрированы! Введите данные для регистрации.</h3>

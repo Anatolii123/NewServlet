@@ -143,7 +143,7 @@ input[id=calc] {
     left: 0px;
 }
 
-input[name=size11] {
+input[name=size11],input[name=size12],input[name=size21],input[name=size22] {
     padding: 15px;
     display: inline-block;
     border: none;
@@ -156,44 +156,6 @@ input[name=size11] {
     border-collapse: collapse;
 }
 
-input[name=size12] {
-    padding: 15px;
-    display: inline-block;
-    border: none;
-    background: #ddd;
-    font-size: 70%;
-    width: 14px;
-    height: 14px;
-    font-family: Verdana, Helvetica, sans-serif;
-    text-align: center;
-    border-collapse: collapse;
-}
-
-input[name=size21] {
-    padding: 15px;
-    display: inline-block;
-    border: none;
-    background: #ddd;
-    font-size: 70%;
-    width: 14px;
-    height: 14px;
-    font-family: Verdana, Helvetica, sans-serif;
-    text-align: center;
-    border-collapse: collapse;
-}
-
-input[name=size22] {
-    padding: 15px;
-    display: inline-block;
-    border: none;
-    background: #ddd;
-    font-size: 70%;
-    width: 14px;
-    height: 14px;
-    font-family: Verdana, Helvetica, sans-serif;
-    text-align: center;
-    border-collapse: collapse;
-}
 h4 {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     color: red;

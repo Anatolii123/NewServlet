@@ -12,11 +12,6 @@ secondMat.style.left = '75%';
 function check(input) {
     input.value = input.value.replace(/[^\d,]/g, '')
 };
-function paste(element, row, column) {
-    left = 100 + 16*column;
-    top = 100 + 16*row;
-    document.body.innerHTML = '<p>' + element.value() + '</p>';
-}
 
 function buildMatrix(size1, size2, id, matrix) {
     var sz1 = size1.value;
@@ -37,7 +32,6 @@ function buildMatrix(size1, size2, id, matrix) {
     }
     matrix.innerHTML = tableHTML;
     matrix.createCaption().innerHTML = "<b>Матрица " + id.toString() + "</b>";
-    document.body.appendChild(matrix);
 }
 buildMatrix(s11,s12,1,firstMat);
 buildMatrix(s21,s22,2,secondMat);
