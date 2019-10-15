@@ -37,36 +37,28 @@ function buildMatrix(size1, size2, id, matrix) {
     }
     matrix.innerHTML = tableHTML;
     matrix.createCaption().innerHTML = "<b>Матрица " + id.toString() + "</b>";
-    if (document.body.className == "Change"){
-        matrix.caption.style.color = "white";
-    }
     document.body.appendChild(matrix);
 }
 buildMatrix(s11,s12,1,firstMat);
 buildMatrix(s21,s22,2,secondMat);
 
+function changeState(arg, state1, state2) {
+    arg.add(state2);
+    arg.remove(state1);
+}
+
 cbx.onclick = function() {
     if(document.body.className != "Change") {
-        document.account.classList.add("Change");
-        document.account.classList.remove("Unchange");
-        document.body.classList.add("Change");
-        document.body.classList.remove("Unchange");
+        changeState(document.account.classList,"Unchange","Change");
+        changeState(document.body.classList,"Unchange","Change");
+        changeState(document.mtx.classList,"Unchange","Change");
         firstMat.caption.style.color = "white";
-        firstMat.style.borderColor = "rgb(51,54,57)";
         secondMat.caption.style.color = "white";
-        secondMat.style.borderColor = "rgb(51,54,57)";
-        document.mtx.classList.add("Change");
-        document.mtx.classList.remove("Unchange");
         return;
     }
-    document.body.classList.add("Unchange");
-    document.body.classList.remove("Change");
-    document.account.classList.add("Unchange");
-    document.account.classList.remove("Change");
-    document.mtx.classList.add("Unchange");
-    document.mtx.classList.remove("Change");
+    changeState(document.body.classList,"Change","Unchange");
+    changeState(document.account.classList,"Change","Unchange");
+    changeState(document.mtx.classList,"Change","Unchange");
     firstMat.caption.style.color = "black";
-    firstMat.style.borderColor = "white";
     secondMat.caption.style.color = "black";
-    secondMat.style.borderColor = "white";
 }
