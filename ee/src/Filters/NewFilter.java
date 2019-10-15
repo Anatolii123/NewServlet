@@ -9,7 +9,7 @@ import java.sql.*;
 
 
 public class NewFilter implements Filter {
-
+//todo удалять лишнее
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
@@ -63,7 +63,6 @@ public class NewFilter implements Filter {
                     req.getSession().setAttribute("gender", req.getParameter("TEXT_7"));
                     req.getSession().setAttribute("bug", req.getParameter("TEXT_8"));
                     req.getSession().setAttribute("comments", (req.getParameter("TEXT_9") == "")? "не задано":req.getParameter("TEXT_9"));
-                    Controller.setRequestAttributes(req);
                     filterChain.doFilter(req,resp);
                 }
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Signup.jsp");
@@ -73,7 +72,6 @@ public class NewFilter implements Filter {
                     " AND PASSWORD = " +
                     "'" + password +"'" +
                     "").next()) {
-                Controller.setRequestAttributes(req);
                 filterChain.doFilter(req,resp);
                 return;
             } else {

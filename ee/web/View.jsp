@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"
         http-equiv="Cache-Control" content="no-cache">
 <%--  выровнять через divы--%>
-  <style> @import "assets/css/style.css"; </style>
+  <style> @import "assets/css/ViewStyle.css"; </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   <script async src="main.js"></script>
   </head>

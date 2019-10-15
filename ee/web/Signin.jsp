@@ -11,44 +11,7 @@
     <title>Sign In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"
           http-equiv="Cache-Control" content="nocache">
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-
-        }
-        form {
-            position: absolute;
-            left: 28px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        input[type=text], input[type=password] {
-            width: 99%;
-            padding: 15px;
-            margin: 5px 0 22px 0;
-            display: inline-block;
-            border: none;
-            background: #f1f1f1;
-        }
-
-        input[type=text]:focus, input[type=password]:focus {
-            background-color: #ddd;
-            outline: none;
-        }
-
-        hr {
-            border: 1px solid #f1f1f1;
-            margin-bottom: 25px;
-        }
-
-        h4 {
-            color: red;
-        }
-
-    </style>
+    <style> @import "assets/css/SigninStyle.css"; </style>
 </head>
 <body>
 <h4><%=request.getAttribute("loginError") != null ? request.getAttribute("loginError"):""%></h4>
