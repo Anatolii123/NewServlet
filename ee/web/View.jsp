@@ -13,7 +13,6 @@
   <title>Обработка данных форм</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"
         http-equiv="Cache-Control" content="no-cache">
-<%--  выровнять через divы--%>
   <style> @import "assets/css/ViewStyle.css"; </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   <script async src="main.js"></script>
@@ -35,42 +34,42 @@
 </div>
 <br><br><br>
 <div style="display: grid">
-<form name="mtx" id="mtx" action="MatrixCalc" method="post">
-  <div>
-    <table name="size">
-      <tr>
-        <td><b>Матрица 1: </b></td>
-        <td><input type="text" name="size11" id="sz11" size="5" oninput="buildMatrix(s11,s12,1,firstMat)"
-                   value="4"
-                   onkeyup="return check(this);" onchange="return check(this);"></td>
-        <td align="center"><b>x</b></td>
-        <td><input type="text" name="size12" id="sz12" size="5" oninput="buildMatrix(s11,s12,1,firstMat)" value="4"
-                   onkeyup="return check(this);" onchange="return check(this);"></td>
-      </tr>
-      <tr>
-        <td><b>Матрица 2:</b></td>
-        <td><input type="text" name="size21" id="sz21" size="5" oninput="buildMatrix(s21,s22,2,secondMat)" value="4"
-                   onkeyup="return check(this);" onchange="return check(this);"></td>
-        <td align="center"><b>x</b></td>
-        <td><input type="text" name="size22" id="sz22" size="5" oninput="buildMatrix(s21,s22,2,secondMat)" value="4"
-                   onkeyup="return check(this);" onchange="return check(this);"></td>
-      </tr>
-      <tr>
-        <td><b>Операция: </b></td>
-        <td><input name="Operation" type="radio" value="Sum" checked>+</td>
-        <td><input name="Operation" type="radio" value="Sub">-</td>
-        <td><input name="Operation" type="radio" value="Mult">*</td>
-      </tr>
-    </table>
-  </div>
-  <div style="display: table">
-    <div style="display: table-row">
-      <div style="display: table-cell"><table name="matrix1" id="matrix1" ></table></div>
-      <div style="display: table-cell"><table name="matrix2" id="matrix2" ></table></div>
+  <form name="mtx" id="mtx" action="MatrixCalc" method="post">
+    <div>
+      <table name="size">
+        <tr>
+          <td><b>Матрица 1: </b></td>
+          <td><input type="text" name="size11" id="sz11" size="5" oninput="buildMatrix(s11,s12,1,firstMat)"
+                     value="4"
+                     onkeyup="return check(this);" onchange="return check(this);"></td>
+          <td align="center"><b>x</b></td>
+          <td><input type="text" name="size12" id="sz12" size="5" oninput="buildMatrix(s11,s12,1,firstMat)" value="4"
+                     onkeyup="return check(this);" onchange="return check(this);"></td>
+        </tr>
+        <tr>
+          <td><b>Матрица 2:</b></td>
+          <td><input type="text" name="size21" id="sz21" size="5" oninput="buildMatrix(s21,s22,2,secondMat)" value="4"
+                     onkeyup="return check(this);" onchange="return check(this);"></td>
+          <td align="center"><b>x</b></td>
+          <td><input type="text" name="size22" id="sz22" size="5" oninput="buildMatrix(s21,s22,2,secondMat)" value="4"
+                     onkeyup="return check(this);" onchange="return check(this);"></td>
+        </tr>
+        <tr>
+          <td><b>Операция: </b></td>
+          <td><input name="Operation" type="radio" value="Sum" checked>+</td>
+          <td><input name="Operation" type="radio" value="Sub">-</td>
+          <td><input name="Operation" type="radio" value="Mult">*</td>
+        </tr>
+      </table>
     </div>
-  </div>
-  <input type="submit" value="Вычислить" id="calc">
-</form>
+    <div style="display: table">
+      <div style="display: table-row">
+        <div style="display: table-cell"><table name="matrix1" id="matrix1" ></table></div>
+        <div style="display: table-cell"><table name="matrix2" id="matrix2" ></table></div>
+      </div>
+    </div>
+    <input type="submit" value="Вычислить" id="calc">
+  </form>
 </div>
 <div class="center">
   <input type="checkbox" id="cbx" style="display:none"/>

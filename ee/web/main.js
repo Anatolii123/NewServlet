@@ -12,11 +12,11 @@ secondMat.style.left = '75%';
 function check(input) {
     input.value = input.value.replace(/[^\d,]/g, '')
 };
-// function paste(element, row, column) {
-//     left = 100 + 16*column;
-//     top = 100 + 16*row;
-//     document.body.innerHTML = '<p style=": ' + left + ' " style="top: ' + top + '">' + element.value() + '</p>';
-// }
+function paste(element, row, column) {
+    left = 100 + 16*column;
+    top = 100 + 16*row;
+    document.body.innerHTML = '<p>' + element.value() + '</p>';
+}
 
 function buildMatrix(size1, size2, id, matrix) {
     var sz1 = size1.value;
@@ -25,26 +25,17 @@ function buildMatrix(size1, size2, id, matrix) {
     size2.style.width = size2.value.toString() != '' ? (size2.value.toString().length*14).toString() + 'px': '14px';
     s21.style.width = s11.style.width;
     s22.style.width = s12.style.width;
-    var mainrow = '<tr><td><input type="text" maxlength="50" size="5" name="' + id.toString() + '11"' +
-        'onkeyup="return check(this);" onchange="return check(this);"></td>';
-    for (var i = 1; i < sz2; i++) {
-        mainrow += '<td><input type="text" maxlength="50" size="5" name="' + id.toString() + '1' + (i+1).toString() +
-            '" onkeyup="return check(this);" onchange="return check(this);"></td>';
-    }
-    mainrow += '</tr>';
-    var tableHTML = mainrow;
-    for (var i = 1; i < sz1; i++){
-        row = '<tr><td><input type="text" maxlength="50" size="5" name="' + id.toString() + (i+1).toString() +
-            '1" onkeyup="return check(this);" onchange="return check(this);"></td>';
-        for (var j = 1; j < sz2; j++) {
-            row += '<td><input type="text" maxlength="50" size="5" name="' + id.toString() + (i+1).toString() + (j+1).toString() +
+    var tableHTML = '';
+    for (var i = 1; i <= sz1; i++){
+        row = '<tr>';
+        for (var j = 1; j <= sz2; j++) {
+            row += '<td><input type="text" maxlength="50" size="5" name="' + id.toString() + i.toString() + j.toString() +
                 '" onkeyup="return check(this);" onchange="return check(this);"></td>';
         }
         row += '</tr>';
         tableHTML += row;
     }
     matrix.innerHTML = tableHTML;
-
     matrix.createCaption().innerHTML = "<b>Матрица " + id.toString() + "</b>";
     if (document.body.className == "Change"){
         matrix.caption.style.color = "white";

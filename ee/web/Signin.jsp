@@ -16,20 +16,22 @@
 </head>
 <body>
 <h4><c:out value="${sessionScope.loginError ne null ? sessionScope.loginError : ''}"/></h4>
-<form action="LogIn" method="post">
-    <table width="200%" cellspacing="0" cellpadding="4">
-        <tr>
-            <td align="right">Email:</td>
-            <td><input type="text" name="TEXT_3" maxlength="50" size="20"
-                       value="<c:out value="${sessionScope.email ne null ? sessionScope.email : ''}"/>"></td>
-        </tr>
-        <tr>
-            <td align="right">Пароль:</td>
-            <td><input type="text" name="TEXT_4" maxlength="50" size="20"></td>
-        </tr>
-    </table>
-    <br>
-    <input type="submit" value="Войти">
-</form>
+<div>
+    <form action="LogIn" method="post">
+        <table width="200%" cellspacing="0" cellpadding="4">
+            <tr>
+                <td align="right">Email:</td>
+                <td><input type="text" name="TEXT_3" maxlength="50" size="20"
+                           value="<c:out value="${sessionScope.email ne null ? sessionScope.email : ''}"/>"></td>
+            </tr>
+            <tr>
+                <td align="right">Пароль:</td>
+                <td><input type="text" name="TEXT_4" maxlength="50" size="20"></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Войти">
+    </form>
+</div>
 </body>
 </html>
