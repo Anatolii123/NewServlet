@@ -18,9 +18,9 @@ function check(input) {
 //     document.body.innerHTML = '<p style=": ' + left + ' " style="top: ' + top + '">' + element.value() + '</p>';
 // }
 
-function f(size1, size2, id, matrix) {
-    sz1 = size1.value;
-    sz2 = size2.value;
+function buildMatrix(size1, size2, id, matrix) {
+    var sz1 = size1.value;
+    var sz2 = size2.value;
     size1.style.width = size1.value.toString() != '' ? (size1.value.toString().length*14).toString() + 'px': '14px';
     size2.style.width = size2.value.toString() != '' ? (size2.value.toString().length*14).toString() + 'px': '14px';
     s21.style.width = s11.style.width;
@@ -51,8 +51,8 @@ function f(size1, size2, id, matrix) {
     }
     document.body.appendChild(matrix);
 }
-f(s11,s12,1,firstMat);
-f(s21,s22,2,secondMat);
+buildMatrix(s11,s12,1,firstMat);
+buildMatrix(s21,s22,2,secondMat);
 
 cbx.onclick = function() {
     if(document.body.className != "Change") {
@@ -62,32 +62,10 @@ cbx.onclick = function() {
         document.body.classList.remove("Unchange");
         firstMat.caption.style.color = "white";
         firstMat.style.borderColor = "rgb(51,54,57)";
-        document.mtx.classList.add("Change");
-        document.mtx.classList.remove("Unchange");
-        for (var i = 0; i < firstMat.rows.length; i++) {
-            var table = firstMat.rows[i].cells;
-            for (var j = 0; j < table.length; j++) {
-                table[j].classList.add("Change");
-                table[j].classList.remove("Unchange");
-                table[j].onmouseleave = function() {
-                    this.classList.add("Change");
-                    this.classList.remove("Unchange");
-                }
-            }
-        }
         secondMat.caption.style.color = "white";
         secondMat.style.borderColor = "rgb(51,54,57)";
-        for (var i = 0; i < secondMat.rows.length; i++) {
-            var table2 = secondMat.rows[i].cells;
-            for (var j = 0; j < table2.length; j++) {
-                table2[j].classList.add("Change");
-                table2[j].classList.remove("Unchange");
-                table2[j].onmouseleave = function() {
-                    this.classList.add("Change");
-                    this.classList.remove("Unchange");
-                }
-            }
-        }
+        document.mtx.classList.add("Change");
+        document.mtx.classList.remove("Unchange");
         return;
     }
     document.body.classList.add("Unchange");
@@ -98,42 +76,6 @@ cbx.onclick = function() {
     document.mtx.classList.remove("Change");
     firstMat.caption.style.color = "black";
     firstMat.style.borderColor = "white";
-    for (var i = 0; i < firstMat.rows.length; i++) {
-        var table = firstMat.rows[i].cells;
-        for (var j = 0; j < table.length; j++) {
-            table[j].style.borderColor = "white";
-            if (i > 0 && j >0) {
-                table[j].classList.add("Unchange");
-                table[j].classList.remove("Change");
-                table[j].onmouseenter = function() {
-                    this.classList.add("Change");
-                    this.classList.remove("Unchange");
-                }
-                table[j].onmouseleave = function() {
-                    this.classList.add("Unchange");
-                    this.classList.remove("Change");
-                }
-            }
-        }
-    }
     secondMat.caption.style.color = "black";
     secondMat.style.borderColor = "white";
-    for (var i = 0; i < secondMat.rows.length; i++) {
-        var table2 = secondMat.rows[i].cells;
-        for (var j = 0; j < table2.length; j++) {
-            table2[j].style.borderColor = "white";
-            if (i > 0 && j >0) {
-                table2[j].classList.add("Unchange");
-                table2[j].classList.remove("Change");
-                table2[j].onmouseenter = function() {
-                    this.classList.add("Change");
-                    this.classList.remove("Unchange");
-                }
-                table2[j].onmouseleave = function() {
-                    this.classList.add("Unchange");
-                    this.classList.remove("Change");
-                }
-            }
-        }
-    }
 }

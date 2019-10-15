@@ -41,19 +41,19 @@
     <table name="size">
       <tr>
         <td><b>Матрица 1: </b></td>
-        <td><input type="text" name="size11" id="sz11" size="5" oninput="f(s11,s12,1,firstMat)"
+        <td><input type="text" name="size11" id="sz11" size="5" oninput="buildMatrix(s11,s12,1,firstMat)"
                    value="4"
                    onkeyup="return check(this);" onchange="return check(this);"></td>
         <td align="center"><b>x</b></td>
-        <td><input type="text" name="size12" id="sz12" size="5" oninput="f(s11,s12,1,firstMat)" value="4"
+        <td><input type="text" name="size12" id="sz12" size="5" oninput="buildMatrix(s11,s12,1,firstMat)" value="4"
                    onkeyup="return check(this);" onchange="return check(this);"></td>
       </tr>
       <tr>
         <td><b>Матрица 2:</b></td>
-        <td><input type="text" name="size21" id="sz21" size="5" oninput="f(s21,s22,2,secondMat)" value="4"
+        <td><input type="text" name="size21" id="sz21" size="5" oninput="buildMatrix(s21,s22,2,secondMat)" value="4"
                    onkeyup="return check(this);" onchange="return check(this);"></td>
         <td align="center"><b>x</b></td>
-        <td><input type="text" name="size22" id="sz22" size="5" oninput="f(s21,s22,2,secondMat)" value="4"
+        <td><input type="text" name="size22" id="sz22" size="5" oninput="buildMatrix(s21,s22,2,secondMat)" value="4"
                    onkeyup="return check(this);" onchange="return check(this);"></td>
       </tr>
       <tr>
