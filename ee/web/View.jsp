@@ -22,17 +22,17 @@
 <body>
 <h4><c:out value="${requestScope.CalcError ne null ? requestScope.CalcError : ''}"/></h4>
 <div style="display: grid">
-<form name="account" id="account" action="LogOut">
-  <h3><c:out value="${requestScope.registration ne null ? requestScope.registration : ''}"/></h3>
-  <p>Имя: <c:out value="${requestScope.name eq '' ? 'не заполнено' : requestScope.name}"/></p>
-  <p>Фамилия: <c:out value="${requestScope.surname eq '' ? 'не заполнено' : requestScope.surname}"/></p>
-  <p>Email: <c:out value="${requestScope.email eq '' ? 'не заполнено' : requestScope.email}"/></p>
-  <p>Дата рождения: <c:out value="${requestScope.dateOfBirth eq '' ? 'не заполнено' : requestScope.dateOfBirth}"/></p>
-  <p>Пол: <c:out value="${requestScope.gender eq '' ? 'не заполнено' : requestScope.gender}"/></p>
-  <p >О баге: <c:out value="${requestScope.bug eq '' ? 'не заполнено' : requestScope.bug}"/></p>
-  <p>Комментарий: <c:out value="${requestScope.comments eq '' ? 'не заполнено' : requestScope.comments}"/></p>
-  <input type="submit" value="Выйти" id="logout">
-</form>
+  <form name="account" id="account" action="LogOut">
+    <h3><c:out value="${requestScope.registration ne null ? requestScope.registration : ''}"/></h3>
+    <p>Имя: <c:out value="${requestScope.name eq '' ? 'не заполнено' : requestScope.name}"/></p>
+    <p>Фамилия: <c:out value="${requestScope.surname eq '' ? 'не заполнено' : requestScope.surname}"/></p>
+    <p>Email: <c:out value="${requestScope.email eq '' ? 'не заполнено' : requestScope.email}"/></p>
+    <p>Дата рождения: <c:out value="${requestScope.dateOfBirth eq '' ? 'не заполнено' : requestScope.dateOfBirth}"/></p>
+    <p>Пол: <c:out value="${requestScope.gender eq '' ? 'не заполнено' : requestScope.gender}"/></p>
+    <p >О баге: <c:out value="${requestScope.bug eq '' ? 'не заполнено' : requestScope.bug}"/></p>
+    <p>Комментарий: <c:out value="${requestScope.comments eq '' ? 'не заполнено' : requestScope.comments}"/></p>
+    <input type="submit" value="Выйти" id="logout">
+  </form>
 </div>
 <br><br><br>
 <div style="display: grid">
@@ -73,16 +73,6 @@
   <input type="submit" value="Вычислить" id="calc">
 </form>
 </div>
-<table>
-
-<%--  <c:forEach var="i" begin = "1" end = "${}">--%>
-<%--    <tr>--%>
-<%--      <td><input type="text" maxlength="50" size="5" name="11"--%>
-<%--                 onkeyup="return check(this);" onchange="return check(this);"></td>--%>
-<%--    </tr>--%>
-<%--  </c:forEach>--%>
-</table>
-<table></table>
 <div class="center">
   <input type="checkbox" id="cbx" style="display:none"/>
   <label for="cbx" class="toggle"><span></span></label>
