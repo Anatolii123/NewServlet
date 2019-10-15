@@ -29,7 +29,21 @@ public class MatrixCalc extends HttpServlet {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(request,response);
         }
-        request.getSession().setAttribute("CalcError",request.getParameter("111") + " " + request.getParameter("112"));
+//        else if((request.getParameter("Operation").equals("Sum"))) {
+////            request.getSession().setAttribute("matrix3_rows",Integer.parseInt(request.getParameter("matrix1_rows")));
+////            request.getSession().setAttribute("matrix3_columns",Integer.parseInt(request.getParameter("matrix1_rows")));
+////            for (int i = 0; i < Integer.parseInt(request.getParameter("matrix1_rows")); i++) {
+////                for (int j = 0; j < Integer.parseInt(request.getParameter("matrix1_columns")); i++) {
+////                    request.getSession().setAttribute("3" + i + j,
+////                            Integer.parseInt(request.getParameter("1" + i + j)) + Integer.parseInt(request.getParameter("2" + i + j)));
+////                }
+////            }
+////        }
+//        todo: 1. Переименовать MatrixReader в MatrixFileReaderImpl
+//         2. Создать интерфейс MatrixReader, заимплементить MatrixReader в MatrixFileReaderImpl
+//         3. Создать свою реализацию этого интерфейса, в котором парсить из request
+//        4. Использовать операции из своей библиотеки
+        request.getSession().setAttribute("CalcError",request.getParameter("111") + request.getParameter("112"));
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
         requestDispatcher.forward(request,response);
     }

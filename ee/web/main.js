@@ -9,7 +9,7 @@ firstMat.style.left = '35%';
 secondMat.style.top = '10%';
 secondMat.style.left = '75%';
 
-function check(input) {
+function checkInput(input) {
     input.value = input.value.replace(/[^\d,]/g, '')
 };
 
@@ -25,7 +25,7 @@ function buildMatrix(size1, size2, id, matrix) {
         row = '<tr>';
         for (var j = 1; j <= sz2; j++) {
             row += '<td><input type="text" maxlength="50" size="5" name="' + id.toString() + i.toString() + j.toString() +
-                '" onkeyup="return check(this);" onchange="return check(this);"></td>';
+                '" onkeyup="return checkInput(this);" onchange="return checkInput(this);"></td>';
         }
         row += '</tr>';
         tableHTML += row;
