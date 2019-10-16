@@ -112,7 +112,7 @@ input[id=logout] {
     left: calc(50% - -850px);
 }
 
-input[type=text]{
+input[type=text] {
     padding: 15px;
     display: inline-block;
     border: none;
@@ -124,6 +124,20 @@ input[type=text]{
     text-align: center;
     border-collapse: collapse;
 }
+
+td[name=text] {
+    padding: 15px;
+    display: inline-block;
+    border: none;
+    background: #ddd;
+    font-size: 100%;
+    width: 20px;
+    height: 20px;
+    font-family: Verdana, Helvetica, sans-serif;
+    text-align: center;
+    border-collapse: collapse;
+}
+
 
 input[type=text]:focus{
     background-color: #ddd;

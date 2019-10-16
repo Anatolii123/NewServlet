@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatrixReader_From_File implements MatrixReader {
+public class MatrixReaderFileImpl implements MatrixReader {
 
     @Override
     public List<Matrix> readMatrix(String filepath) throws Exception {

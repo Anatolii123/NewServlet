@@ -5,10 +5,10 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatrixSetter_To_File implements MatrixSetter {
+public class MatrixSetterFileImpl implements MatrixSetter {
 
     @Override
-    public void setMatrixToFile(String filepath, List<Matrix> matrices2) throws Exception {
+    public void setMatrixTo(String filepath, List<Matrix> matrices2) throws Exception {
         PrintWriter out = new PrintWriter(new FileWriter(filepath));
         for (int i = 0; i < matrices2.size(); i++) {
             for (int j = 0; j < matrices2.get(i).getA(); j++) {
