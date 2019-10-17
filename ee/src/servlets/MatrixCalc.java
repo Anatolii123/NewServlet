@@ -13,7 +13,9 @@ import java.util.List;
 @WebServlet("/MatrixCalc")
 public class MatrixCalc extends HttpServlet {
 
-    public String setMatrixToString(String matrix, String rows, String columns, HttpServletRequest request, int matrixNumb) {
+    public String setMatrixToString(String matrix, String matrixRows, String matrixColumns, HttpServletRequest request, int matrixNumb) {
+        String rows = request.getParameter(matrixRows);
+        String columns = request.getParameter(matrixColumns);
         matrix += rows;
         matrix += columns;
         for (int i = 1; i <= Integer.parseInt(rows); i++) {
@@ -29,6 +31,13 @@ public class MatrixCalc extends HttpServlet {
         request.getSession().setAttribute("matrix1_columns", request.getParameter("matrix1_columns"));
         request.getSession().setAttribute("matrix2_rows", request.getParameter("matrix2_rows"));
         request.getSession().setAttribute("matrix2_columns", request.getParameter("matrix2_columns"));
+        String matrix1 = new String();
+        String matrix2 = new String();
+        matrix1 = setMatrixToString(matrix1, "matrix1_rows", "matrix1_columns", request,1);
+        matrix2 = setMatrixToString(matrix2, "matrix2_rows", "matrix2_columns", request,2);
+        MatrixReaderServletImpl matrixReader_from_servlet = new MatrixReaderServletImpl();
+        List<Matrix> firstMatrix = matrixReader_from_servlet.readMatrix(matrix1);
+        List<Matrix> secondMatrix = matrixReader_from_servlet.readMatrix(matrix2);
         if ((request.getParameter("Operation").equals("Sum") ||
                 request.getParameter("Operation").equals("Sub")) &&
                 (!request.getParameter("matrix1_rows").equals(request.getParameter("matrix2_rows")) ||
@@ -47,27 +56,37 @@ public class MatrixCalc extends HttpServlet {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
             requestDispatcher.forward(request,response);
             return;
-        }
-        else if((request.getParameter("Operation").equals("Sum"))) {
-            String matrix1 = new String();
-            String matrix2 = new String();
-
-            String rows = request.getParameter("matrix1_rows");
-            String columns = request.getParameter("matrix1_columns");
-            matrix1 = setMatrixToString(matrix1, rows, columns, request,1);
-
-            String rows2 = request.getParameter("matrix2_rows");
-            String columns2 = request.getParameter("matrix2_columns");
-            matrix2 = setMatrixToString(matrix2, rows2, columns2, request,2);
-
-            MatrixReaderServletImpl matrixReader_from_servlet = new MatrixReaderServletImpl();
-            List<Matrix> firstMatrix = matrixReader_from_servlet.readMatrix(matrix1);
-            List<Matrix> secondMatrix = matrixReader_from_servlet.readMatrix(matrix2);
+        } else if((request.getParameter("Operation").equals("Sum"))) {
+            request.getSession().setAttribute("CalcError",null);
             MatrixSummator matrixSummator = new MatrixSummator();
             Operations[][] sum = matrixSummator.perform(firstMatrix.get(0),secondMatrix.get(0));
             for (int i = 1; i <= sum.length; i++) {
                 for (int j = 1; j <= sum[0].length; j++) {
                     request.getSession().setAttribute("m3" + i + j,sum[i-1][j-1]);
+                }
+            }
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
+            requestDispatcher.forward(request,response);
+            return;
+        } else if ((request.getParameter("Operation").equals("Sub"))) {
+            request.getSession().setAttribute("CalcError",null);
+            MatrixSubstractor matrixSubstractor = new MatrixSubstractor();
+            Operations[][] sub = matrixSubstractor.perform(firstMatrix.get(0),secondMatrix.get(0));
+            for (int i = 1; i <= sub.length; i++) {
+                for (int j = 1; j <= sub[0].length; j++) {
+                    request.getSession().setAttribute("m3" + i + j,sub[i-1][j-1]);
+                }
+            }
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
+            requestDispatcher.forward(request,response);
+            return;
+        } else if ((request.getParameter("Operation").equals("Mult"))) {
+            request.getSession().setAttribute("CalcError",null);
+            MatrixMultiplicator matrixMultiplicator = new MatrixMultiplicator();
+            Operations[][] mult = matrixMultiplicator.perform(firstMatrix.get(0),secondMatrix.get(0));
+            for (int i = 1; i <= mult.length; i++) {
+                for (int j = 1; j <= mult[0].length; j++) {
+                    request.getSession().setAttribute("m3" + i + j,mult[i-1][j-1]);
                 }
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");

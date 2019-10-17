@@ -26,7 +26,9 @@ function buildMatrix(size1, size2, id, matrix) {
     for (var i = 1; i <= sz1; i++){
         row = '<tr>';
         for (var j = 1; j <= sz2; j++) {
-            row += '<td><input type="text" maxlength="50" size="5" name="' + id.toString() + i.toString() + j.toString() +
+            row += '<td><input value="" type="text" maxlength="50" size="5" id="' +
+                id.toString() + i.toString() + j.toString() +
+                '" name="' + id.toString() + i.toString() + j.toString() +
                 '" onkeyup="return checkInput(this);" onchange="return checkInput(this);"></td>';
         }
         row += '</tr>';
