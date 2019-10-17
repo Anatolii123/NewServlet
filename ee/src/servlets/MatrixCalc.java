@@ -13,12 +13,12 @@ import java.util.List;
 @WebServlet("/MatrixCalc")
 public class MatrixCalc extends HttpServlet {
 
-    public String setMatrixToString(String matrix, String rows, String columns, HttpServletRequest request) {
+    public String setMatrixToString(String matrix, String rows, String columns, HttpServletRequest request, int matrixNumb) {
         matrix += rows;
         matrix += columns;
         for (int i = 1; i <= Integer.parseInt(rows); i++) {
             for (int j = 1; j <= Integer.parseInt(columns); j++) {
-                matrix += request.getParameter("1" + String.valueOf(i) + String.valueOf(j)) + " ";
+                matrix += request.getParameter(String.valueOf(matrixNumb) + String.valueOf(i) + String.valueOf(j)) + " ";
             }
         }
         return matrix;
@@ -54,11 +54,11 @@ public class MatrixCalc extends HttpServlet {
 
             String rows = request.getParameter("matrix1_rows");
             String columns = request.getParameter("matrix1_columns");
-            matrix1 = setMatrixToString(matrix1, rows, columns, request);
+            matrix1 = setMatrixToString(matrix1, rows, columns, request,1);
 
             String rows2 = request.getParameter("matrix2_rows");
             String columns2 = request.getParameter("matrix2_columns");
-            matrix2 = setMatrixToString(matrix2, rows2, columns2, request);
+            matrix2 = setMatrixToString(matrix2, rows2, columns2, request,2);
 
             MatrixReaderServletImpl matrixReader_from_servlet = new MatrixReaderServletImpl();
             List<Matrix> firstMatrix = matrixReader_from_servlet.readMatrix(matrix1);

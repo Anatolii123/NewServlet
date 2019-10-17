@@ -20,6 +20,8 @@ function buildMatrix(size1, size2, id, matrix) {
     size2.style.width = size2.value.toString() != '' ? (size2.value.toString().length*14).toString() + 'px': '14px';
     s21.style.width = s11.style.width;
     s22.style.width = s12.style.width;
+    s11.style.width = s21.style.width;
+    s12.style.width = s22.style.width;
     var tableHTML = '';
     for (var i = 1; i <= sz1; i++){
         row = '<tr>';

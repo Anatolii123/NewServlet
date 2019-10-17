@@ -67,16 +67,18 @@
       <table name="matrix1" id="matrix1"></table>
       <table name="matrix2" id="matrix2"></table>
       <c:if test="${sessionScope.m311 ne null}">
-        <table id="result" style="left: 500px">
+        <table id="result" style="left: 670px">
           <caption><b>Матрица 3</b></caption>
           <%
             String row = new String();
             row += "<tr>";
             for (int i = 1; i <= Integer.parseInt(request.getSession().getAttribute("matrix1_rows").toString()); i++) {
               for (int j = 1; j <= Integer.parseInt(request.getSession().getAttribute("matrix2_columns").toString()); j++) {
-                row += "<td><input type=\"text\" maxlength=\"50\" size=\"5\" name=\"' + \"m3\"" + i + j +"\"\n" +
-                        "'\" onkeyup=\"return checkInput(this);\" onchange=\"return checkInput(this);\" value=\"" +
-                        request.getSession().getAttribute("m3" + i + j).toString().replace(".0","") + "\"></td>";
+                row += "<td><input type=\"text\" maxlength=\"50\" size=\"5\" id=\"m3" + i + j +
+                        "\" name=\"m3" + i + j +"\"\n" +
+                        " onkeyup=\"return checkInput(this);\" onchange=\"return checkInput(this);\" value=\"" +
+                        request.getSession().getAttribute("m3" + i + j).toString().replace(".0","") + "\"" +
+                        "></td>";
               }
               row += "</tr>";
             }
