@@ -94,7 +94,6 @@ public class MatrixCalc extends HttpServlet {
             return;
         }
 
-//        4. Использовать операции из своей библиотеки
         request.getSession().setAttribute("CalcError",request.getParameter("111") + request.getParameter("112"));
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
         requestDispatcher.forward(request,response);
