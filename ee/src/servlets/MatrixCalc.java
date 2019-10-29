@@ -94,9 +94,6 @@ public class MatrixCalc extends HttpServlet {
             return;
         }
 
-//        todo: 1. Переименовать MatrixReader в MatrixFileReaderImpl
-//         2. Создать интерфейс MatrixReader, заимплементить MatrixReader в MatrixFileReaderImpl
-//         3. Создать свою реализацию этого интерфейса, в котором парсить из request
 //        4. Использовать операции из своей библиотеки
         request.getSession().setAttribute("CalcError",request.getParameter("111") + request.getParameter("112"));
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View.jsp");
